@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GONZAGA | Science Driven Animal Nutrition</title>
+<meta name="description" content="Gonzaga desarrolla tecnologías nutricionales avanzadas para rumiantes, acuicultura y crianza animal, respaldadas por más de 40 años de investigación científica aplicada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root{
+  --navy:      #1E2D5A;
+  --navy-deep: #141E3D;
+  --navy-mid:  #263570;
+  --navy-soft: #EEF1F8;
+  --navy-pale: #F5F7FB;
+  --green:     #4A8C6E;
+  --green-lt:  #5BA07F;
+  --green-pale:#E8F2EC;
+  --green-mid: #D0E8DA;
+  --white:     #FFFFFF;
+  --off:       #F7F9FC;
+  --surface:   #EEF1F8;
+  --border:    #DDE2EE;
+  --border-lt: #EEF1F8;
+  --gray:      #8892A4;
+  --gray-dk:   #4A5468;
+  --text:      #1E2D5A;
+  --r-sm: 6px; --r-md:12px; --r-lg:18px; --r-xl:26px;
+  --sh-sm:  0 2px 12px rgba(30,45,90,.07);
+  --sh-md:  0 4px 24px rgba(30,45,90,.10);
+  --sh-lg:  0 10px 40px rgba(30,45,90,.14);
+  --ease:   all .26s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;font-size:16px;color:var(--text);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  height:70px;padding:0 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:var(--sh-md)}
+
+/* Logo: fiel al original */
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo-text{display:flex;flex-direction:column;line-height:1}
+.logo-name{
+  font-size:15px;font-weight:700;letter-spacing:.22em;
+  color:var(--navy);text-transform:uppercase
+}
+.logo-sub{
+  font-size:7.5px;font-weight:500;letter-spacing:.2em;
+  color:var(--green);text-transform:uppercase;margin-top:3.5px
+}
+
+.nav-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.nav-links a{
+  font-size:13px;font-weight:500;color:var(--gray-dk);
+  text-decoration:none;padding:.44rem .9rem;
+  border-radius:var(--r-sm);letter-spacing:.02em;transition:var(--ease)
+}
+.nav-links a:hover{color:var(--navy);background:var(--navy-soft)}
+.nav-cta{
+  font-size:13px!important;font-weight:600!important;
+  color:var(--white)!important;background:var(--navy)!important;
+  padding:.5rem 1.3rem!important;border-radius:50px!important;
+  letter-spacing:.03em;transition:var(--ease)!important
+}
+.nav-cta:hover{background:var(--navy-mid)!important;box-shadow:0 4px 14px rgba(30,45,90,.3)!important;transform:translateY(-1px)}
+
+.hamburger{display:none;background:none;border:none;cursor:pointer;color:var(--navy);font-size:22px}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;background:var(--white);
+  display:flex;align-items:center;
+  padding:110px 3rem 80px;
+  position:relative;overflow:hidden
+}
+/* Background: grilla científica muy sutil */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--border-lt) 1px,transparent 1px),
+    linear-gradient(90deg,var(--border-lt) 1px,transparent 1px);
+  background-size:48px 48px;opacity:.6;pointer-events:none
+}
+/* Blob verde suave arriba derecha */
+.hero::after{
+  content:'';position:absolute;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(74,140,110,.08) 0%,transparent 65%);
+  top:-140px;right:-100px;pointer-events:none
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:5rem;position:relative;z-index:2
+}
+
+/* Left */
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--green-pale);border:1px solid rgba(74,140,110,.25);
+  color:var(--green);font-size:10.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  padding:5px 14px;border-radius:50px;margin-bottom:1.8rem
+}
+.kicker-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:blink 2.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+h1{
+  font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:700;
+  color:var(--navy);line-height:1.14;letter-spacing:-.025em;
+  margin-bottom:1.5rem
+}
+h1 em{color:var(--green);font-style:normal}
+
+.hero-lead{
+  font-size:16.5px;color:var(--gray-dk);line-height:1.8;
+  margin-bottom:2.5rem;max-width:520px
+}
+
+.hero-actions{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13.5px;font-weight:600;
+  padding:.82rem 1.85rem;border-radius:50px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:var(--ease);letter-spacing:.02em;font-family:inherit
+}
+.btn-navy{background:var(--navy);color:var(--white)}
+.btn-navy:hover{background:var(--navy-mid);transform:translateY(-2px);box-shadow:0 8px 22px rgba(30,45,90,.28)}
+.btn-ghost{
+  background:transparent;color:var(--navy);
+  border:1.5px solid var(--border)
+}
+.btn-ghost:hover{border-color:var(--navy);background:var(--navy-soft)}
+
+.hero-stats{
+  display:flex;gap:2.5rem;
+  margin-top:3rem;padding-top:2.5rem;
+  border-top:1px solid var(--border);flex-wrap:wrap
+}
+.hs-num{font-size:1.85rem;font-weight:700;color:var(--navy);letter-spacing:-.02em;line-height:1;margin-bottom:3px}
+.hs-num span{color:var(--green)}
+.hs-label{font-size:10.5px;font-weight:500;color:var(--gray);letter-spacing:.07em;text-transform:uppercase}
+
+/* Right: logo ampliado + card */
+.hero-right{display:flex;flex-direction:column;gap:1.25rem;align-items:stretch}
+
+.hero-logo-display{
+  background:var(--navy-pale);border:1px solid var(--border);
+  border-radius:var(--r-xl);
+  padding:3rem 2rem;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1.5rem
+}
+.hero-logo-svg-wrap{
+  display:flex;align-items:center;justify-content:center
+}
+
+/* animación hover en el isotipo grande */
+.isotipo-large{transition:transform .5s ease}
+.hero-logo-display:hover .isotipo-large{transform:rotate(8deg) scale(1.04)}
+
+.hero-logo-wordmark{
+  display:flex;flex-direction:column;align-items:center;gap:4px
+}
+.wm-name{
+  font-size:22px;font-weight:700;letter-spacing:.26em;color:var(--navy)
+}
+.wm-sub{
+  font-size:9px;font-weight:500;letter-spacing:.22em;color:var(--green)
+}
+
+.hero-dr-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:1.5rem 1.75rem;
+  box-shadow:var(--sh-sm);
+  display:flex;align-items:center;gap:1.25rem
+}
+.dr-ava{
+  width:52px;height:52px;min-width:52px;border-radius:50%;
+  background:var(--navy);display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;color:var(--green-lt);letter-spacing:.04em
+}
+.dr-name-sm{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.dr-role-sm{font-size:11px;font-weight:500;color:var(--green);letter-spacing:.03em;text-transform:uppercase;margin-bottom:6px}
+.dr-meta{font-size:12px;color:var(--gray);line-height:1.5}
+
+/* ── SHARED ── */
+section{padding:96px 3rem}
+.wrap{max-width:1200px;margin:0 auto}
+
+.eyebrow{
+  font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--green);margin-bottom:.9rem;display:block
+}
+.eyebrow-light{color:rgba(74,140,110,.85)}
+
+h2{
+  font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;
+  color:var(--navy);line-height:1.18;letter-spacing:-.022em;margin-bottom:.9rem
+}
+h2.white{color:#fff}
+
+.lead{font-size:16.5px;color:var(--gray-dk);max-width:600px;line-height:1.78}
+.lead.light{color:rgba(255,255,255,.65);max-width:620px}
+.sec-head{margin-bottom:3.5rem}
+
+/* divider */
+.div-line{width:48px;height:3px;background:var(--green);border-radius:2px;margin-bottom:1rem}
+
+/* ── PILLARS ── */
+.sec-pillars{background:var(--off)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pillar{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:2.25rem 1.75rem;
+  transition:var(--ease);position:relative;overflow:hidden
+}
+.pillar::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--green);transform:scaleX(0);transform-origin:left;
+  transition:var(--ease)
+}
+.pillar:hover{box-shadow:var(--sh-lg);transform:translateY(-4px)}
+.pillar:hover::before{transform:scaleX(1)}
+.p-ico{
+  width:48px;height:48px;background:var(--green-pale);
+  border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.4rem
+}
+.p-num{font-size:10px;font-weight:700;color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.35rem}
+.p-title{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:.65rem;letter-spacing:-.01em}
+.p-text{font-size:14.5px;color:var(--gray-dk);line-height:1.73}
+
+/* ── TECHNOLOGY ── */
+.sec-tech{background:var(--navy)}
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+
+.patent-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(74,140,110,.15);border:1px solid rgba(74,140,110,.3);
+  color:var(--green-lt);font-size:10.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:5px 13px;border-radius:50px;margin-bottom:1.75rem
+}
+.feat-list{list-style:none;margin-top:1.6rem;display:flex;flex-direction:column;gap:.85rem}
+.feat-list li{
+  display:flex;align-items:flex-start;gap:11px;
+  font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.65
+}
+.feat-check{
+  width:19px;height:19px;min-width:19px;
+  background:rgba(74,140,110,.2);border:1px solid rgba(74,140,110,.4);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px
+}
+.tech-cards{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.tc{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
+  border-radius:var(--r-md);padding:1.35rem 1.2rem;transition:var(--ease)
+}
+.tc:hover{background:rgba(74,140,110,.1);border-color:rgba(74,140,110,.3)}
+.tc.span2{grid-column:span 2}
+.tc-num{font-size:2rem;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:3px}
+.tc-num s{color:var(--green-lt);text-decoration:none}
+.tc-label{font-size:11.5px;color:rgba(255,255,255,.42);line-height:1.5}
+.tc-body{font-size:14px;color:rgba(255,255,255,.68);line-height:1.68}
+.tc-body strong{color:#fff;font-weight:600}
+
+/* ── DISTRIBUTOR MODEL ── */
+.sec-dist{background:var(--surface)}
+.dist-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.dist-visual{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-xl);padding:2.5rem;box-shadow:var(--sh-md)
+}
+.dist-flow{display:flex;flex-direction:column;gap:0}
+.df-step{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1.1rem 0
+}
+.df-step+.df-step{border-top:1px solid var(--border-lt)}
+.df-num{
+  width:34px;height:34px;min-width:34px;border-radius:50%;
+  background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;letter-spacing:.02em
+}
+.df-num.green{background:var(--green)}
+.df-title{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.df-desc{font-size:13px;color:var(--gray);line-height:1.6}
+.dist-note{
+  margin-top:1.5rem;padding:1rem 1.25rem;
+  background:var(--green-pale);border:1px solid var(--green-mid);
+  border-radius:var(--r-md);font-size:13px;color:var(--gray-dk);line-height:1.65
+}
+.dist-note strong{color:var(--navy)}
+.dist-tags{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:2rem}
+.dist-tag{
+  font-size:12px;font-weight:500;color:var(--navy);
+  background:var(--white);border:1px solid var(--border);
+  padding:5px 13px;border-radius:50px;transition:var(--ease)
+}
+.dist-tag:hover{background:var(--green-pale);border-color:rgba(74,140,110,.4);color:var(--green)}
+
+/* ── PRODUCTS ── */
+.prod-grid-top{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:1.4rem}
+.prod-grid-bot{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+
+.pcard{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:2rem 1.75rem;
+  position:relative;overflow:hidden;transition:var(--ease)
+}
+.pcard:hover{box-shadow:var(--sh-lg);transform:translateY(-3px)}
+.pcard-stripe{position:absolute;top:0;left:0;right:0;height:3px}
+.stripe-navy{background:var(--navy)}
+.stripe-green{background:var(--green)}
+.stripe-mid{background:#6B8FC2}
+.stripe-soft{background:#8CB8A0}
+
+.pcard-tag{
+  display:inline-block;font-size:10px;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;
+  padding:3px 10px;border-radius:50px;margin-bottom:1rem
+}
+.tag-navy{color:var(--navy);background:var(--navy-soft)}
+.tag-green{color:var(--green);background:var(--green-pale)}
+.tag-blue{color:#185FA5;background:#E6F1FB}
+.tag-mid{color:#3B5A8A;background:#E6EDF8}
+
+.pcard-name{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:.6rem;letter-spacing:-.01em}
+.pcard-desc{font-size:13.5px;color:var(--gray-dk);line-height:1.72;margin-bottom:1.1rem}
+.pcard-pts{list-style:none;display:flex;flex-direction:column;gap:5px}
+.pcard-pts li{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:13px;color:var(--gray-dk);line-height:1.55
+}
+.pcard-pts li::before{
+  content:'';width:5px;height:5px;min-width:5px;
+  background:var(--green);border-radius:50%;margin-top:6px
+}
+/* featured cards */
+.pcard.feat{border-color:rgba(30,45,90,.18)}
+.pcard.feat:hover{border-color:rgba(30,45,90,.3)}
+.pcard-result{
+  background:var(--navy-pale);border:1px solid var(--border);
+  border-radius:var(--r-md);padding:1.1rem 1.2rem;margin-top:1.2rem
+}
+.pr-label{font-size:10px;font-weight:700;color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.7rem}
+.pr-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:.3rem 0;border-bottom:1px solid var(--border-lt)
+}
+.pr-row:last-child{border:none}
+.pr-val{font-size:16px;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.pr-desc{font-size:11px;color:var(--gray);max-width:56%;text-align:right;line-height:1.4}
+
+/* ── SCIENCE ── */
+.sec-sci{background:var(--off)}
+.sci-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:4.5rem;align-items:start}
+.dr-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-xl);padding:2.25rem 2rem;box-shadow:var(--sh-md)
+}
+.dr-av{
+  width:72px;height:72px;border-radius:50%;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:700;color:var(--green-lt);
+  margin-bottom:1.3rem;letter-spacing:.04em
+}
+.dr-n{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:3px;letter-spacing:-.01em}
+.dr-r{font-size:11px;font-weight:600;color:var(--green);letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.1rem}
+.dr-bio{font-size:14px;color:var(--gray-dk);line-height:1.75;margin-bottom:1.3rem}
+.dr-creds{list-style:none;display:flex;flex-direction:column;gap:7px}
+.dr-creds li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--gray-dk);line-height:1.5}
+.cr-dot{width:6px;height:6px;min-width:6px;background:var(--green);border-radius:1.5px;margin-top:6px}
+.r-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.75rem}
+.r-tag{
+  font-size:12px;font-weight:500;color:var(--navy);
+  background:var(--white);border:1px solid var(--border);
+  padding:4px 12px;border-radius:50px;transition:var(--ease)
+}
+.r-tag:hover{background:var(--green-pale);border-color:rgba(74,140,110,.4);color:var(--green)}
+.sci-quote{
+  background:var(--navy);border-radius:var(--r-md);
+  padding:1.6rem 1.75rem;margin-top:2.25rem
+}
+.sci-quote p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.72;font-style:italic}
+.sci-quote cite{display:block;font-size:11.5px;color:var(--green-lt);font-weight:500;margin-top:.7rem;font-style:normal;letter-spacing:.03em}
+
+/* ── ACADEMY ── */
+.sec-acad{background:var(--navy-deep)}
+.acad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:2.75rem}
+.ac{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r-md);padding:1.6rem 1.4rem;transition:var(--ease)
+}
+.ac:hover{background:rgba(74,140,110,.1);border-color:rgba(74,140,110,.3);transform:translateY(-3px)}
+.ac-ico{
+  width:40px;height:40px;background:rgba(74,140,110,.15);
+  border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;
+  margin-bottom:1rem
+}
+.ac-t{font-size:14px;font-weight:600;color:#fff;margin-bottom:.4rem}
+.ac-d{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4.5rem;align-items:start}
+.ci h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.ci p{font-size:14.5px;color:var(--gray-dk);line-height:1.72;margin-bottom:1.75rem}
+.c-row{display:flex;align-items:center;gap:11px;font-size:14px;color:var(--gray-dk);margin-bottom:.85rem}
+.c-ico{
+  width:34px;height:34px;min-width:34px;background:var(--green-pale);
+  border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center
+}
+.a-label{font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin:1.75rem 0 .6rem}
+.a-wrap{display:flex;flex-wrap:wrap;gap:.5rem}
+.a-tag{
+  font-size:12px;font-weight:500;color:var(--navy);
+  background:var(--off);border:1px solid var(--border);
+  padding:4px 12px;border-radius:50px
+}
+/* form */
+.cform{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-xl);padding:2.25rem;box-shadow:var(--sh-md)
+}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:1.05rem}
+.fl{font-size:12.5px;font-weight:600;color:var(--navy);letter-spacing:.02em}
+.fi,.fs,.fta{
+  width:100%;padding:.7rem .95rem;
+  border:1.5px solid var(--border);border-radius:var(--r-sm);
+  font-family:'Inter',sans-serif;font-size:14px;color:var(--text);
+  background:var(--white);outline:none;transition:var(--ease)
+}
+.fi:focus,.fs:focus,.fta:focus{
+  border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,45,90,.08)
+}
+.fta{resize:vertical;min-height:108px}
+.fsub{
+  width:100%;padding:.88rem;background:var(--navy);color:#fff;
+  border:none;border-radius:50px;font-family:'Inter',sans-serif;
+  font-size:15px;font-weight:600;cursor:pointer;transition:var(--ease);
+  letter-spacing:.02em
+}
+.fsub:hover{background:var(--navy-mid);transform:translateY(-1px);box-shadow:0 6px 18px rgba(30,45,90,.28)}
+
+/* ── FOOTER ── */
+footer{background:var(--navy-deep);padding:3.5rem 3rem 2rem;border-top:1px solid rgba(255,255,255,.07)}
+.foot-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;
+  padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)
+}
+.foot-brand p{font-size:13.5px;color:rgba(255,255,255,.4);line-height:1.72;margin-top:.9rem;max-width:260px}
+.foot-col-t{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.1rem}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.foot-links a{font-size:13.5px;color:rgba(255,255,255,.5);text-decoration:none;transition:var(--ease)}
+.foot-links a:hover{color:var(--green-lt)}
+.foot-bottom{
+  max-width:1200px;margin:1.75rem auto 0;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem
+}
+.foot-copy{font-size:12px;color:rgba(255,255,255,.28)}
+.foot-tag{font-size:12px;color:var(--green-lt);font-weight:500;letter-spacing:.06em}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ── MOBILE ── */
+@media(max-width:960px){
+  nav{padding:0 1.5rem}
+  .nav-links{display:none}
+  .hamburger{display:block}
+  nav.open .nav-links{
+    display:flex;flex-direction:column;
+    position:fixed;top:70px;left:0;right:0;
+    background:rgba(255,255,255,.98);
+    padding:1.25rem 1.5rem;gap:.15rem;
+    border-bottom:1px solid var(--border);
+    box-shadow:var(--sh-md)
+  }
+  section{padding:72px 1.5rem}
+  .hero{padding:110px 1.5rem 72px}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .pillars{grid-template-columns:1fr}
+  .tech-grid{grid-template-columns:1fr}
+  .tech-cards{grid-template-columns:1fr 1fr}
+  .dist-grid{grid-template-columns:1fr}
+  .prod-grid-top{grid-template-columns:1fr}
+  .prod-grid-bot{grid-template-columns:1fr 1fr}
+  .sci-grid{grid-template-columns:1fr}
+  .acad-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .f-row{grid-template-columns:1fr}
+}
+@media(max-width:540px){
+  .prod-grid-bot{grid-template-columns:1fr}
+  .acad-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .tech-cards{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <!-- Isotipo fiel al logo original -->
+    <svg width="46" height="38" viewBox="0 0 46 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Hexágono inferior-izquierdo (navy, abierto arriba-derecha) -->
+      <path d="M4 14 L4 26 L13 31.5 L22 26 L22 14 L13 8.5 Z"
+            stroke="#1E2D5A" stroke-width="3" stroke-linejoin="round"
+            fill="none" stroke-linecap="round"/>
+      <!-- Círculo-nodo inferior-izquierdo -->
+      <circle cx="4" cy="20" r="2.5" fill="#1E2D5A"/>
+      <!-- Hexágono superior-derecho (navy, abierto abajo-izquierda) -->
+      <path d="M24 7 L24 19 L33 24.5 L42 19 L42 7 L33 1.5 Z"
+            stroke="#1E2D5A" stroke-width="3" stroke-linejoin="round"
+            fill="none" stroke-linecap="round"/>
+      <!-- Círculo-nodo superior-derecho -->
+      <circle cx="42" cy="13" r="2.5" fill="#1E2D5A"/>
+      <!-- Punto central verde -->
+      <circle cx="23" cy="19" r="4.5" fill="#4A8C6E"/>
+    </svg>
+    <div class="logo-text">
+      <span class="logo-name">GONZAGA</span>
+      <span class="logo-sub">Science Driven Animal Nutrition</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#tecnologia">Tecnología</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#distribuidores">Distribuidores</a></li>
+    <li><a href="#investigacion">Investigación</a></li>
+    <li><a href="#academy">Academy</a></li>
+    <li><a href="#contacto" class="nav-cta">Contacto técnico</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menú">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <!-- Left -->
+    <div>
+      <div class="hero-kicker">
+        <span class="kicker-dot"></span>
+        Empresa de tecnología nutricional animal
+      </div>
+      <h1>
+        Nutrición animal<br>
+        guiada por la <em>ciencia</em>
+      </h1>
+      <p class="hero-lead">
+        Gonzaga desarrolla y licencia tecnologías nutricionales avanzadas para producción animal de alto desempeño, a través de una red de distribuidores especializados en Chile y Latinoamérica.
+      </p>
+      <div class="hero-actions">
+        <a href="#productos" class="btn btn-navy">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          Ver productos
+        </a>
+        <a href="#distribuidores" class="btn btn-ghost">
+          Red de distribuidores
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hs-num">40<span>+</span></div>
+          <div class="hs-label">Años de investigación</div>
+        </div>
+        <div>
+          <div class="hs-num">&gt;90<span>%</span></div>
+          <div class="hs-label">Protección ruminal</div>
+        </div>
+        <div>
+          <div class="hs-num">6</div>
+          <div class="hs-label">Líneas de productos</div>
+        </div>
+        <div>
+          <div class="hs-num"><span>✓</span></div>
+          <div class="hs-label">Patente en trámite</div>
+        </div>
+      </div>
+    </div>
+    <!-- Right: logo ampliado + Dr card -->
+    <div class="hero-right">
+      <div class="hero-logo-display">
+        <div class="hero-logo-svg-wrap">
+          <!-- Isotipo grande, idéntico al logo real -->
+          <svg class="isotipo-large" width="130" height="108" viewBox="0 0 130 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 40 L10 72 L36 87 L62 72 L62 40 L36 25 Z"
+                  stroke="#1E2D5A" stroke-width="7" stroke-linejoin="round"
+                  fill="none" stroke-linecap="round"/>
+            <circle cx="10" cy="56" r="7" fill="#1E2D5A"/>
+            <path d="M68 21 L68 53 L94 68 L120 53 L120 21 L94 6 Z"
+                  stroke="#1E2D5A" stroke-width="7" stroke-linejoin="round"
+                  fill="none" stroke-linecap="round"/>
+            <circle cx="120" cy="37" r="7" fill="#1E2D5A"/>
+            <circle cx="65" cy="54" r="13" fill="#4A8C6E"/>
+            <circle cx="65" cy="54" r="20" fill="rgba(74,140,110,0.12)" stroke="rgba(74,140,110,0.3)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="hero-logo-wordmark">
+          <span class="wm-name">GONZAGA</span>
+          <span class="wm-sub">Science Driven Animal Nutrition</span>
+        </div>
+      </div>
+      <div class="hero-dr-card">
+        <div class="dr-ava">FG</div>
+        <div>
+          <div class="dr-name-sm">Dr. Fernando González Muñizaga</div>
+          <div class="dr-role-sm">Founder &amp; Chief Scientific Officer</div>
+          <div class="dr-meta">+40 años · U. de Chile · PUC · Patente en trámite</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="sec-pillars" id="pilares">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Propuesta de valor</span>
+      <div class="div-line"></div>
+      <h2>Ciencia, tecnología y resultados medibles</h2>
+      <p class="lead">Gonzaga no comercializa ingredientes de terceros. Cada producto nace desde investigación propia, validación en campo y propiedad intelectual generada en más de cuatro décadas de trabajo científico aplicado.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="p-ico">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+        </div>
+        <div class="p-num">Pilar 01</div>
+        <div class="p-title">Ciencia propia</div>
+        <p class="p-text">Más de cuatro décadas de investigación aplicada en nutrición animal, producción de leche, metabolismo hepático y desarrollo de ingredientes funcionales. Cada producto cuenta con ensayos clínicos propios realizados en Chile.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="p-ico">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div class="p-num">Pilar 02</div>
+        <div class="p-title">Tecnología patentada</div>
+        <p class="p-text">Plataforma de transformación de aceites líquidos en grasa vegetal en polvo de alta concentración lipídica. Permite mayor biodisponibilidad, mejor mezcla industrial y encapsulación de compuestos bioactivos con protección ruminal superior al 90%.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="p-ico">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        </div>
+        <div class="p-num">Pilar 03</div>
+        <div class="p-title">Resultados validados</div>
+        <p class="p-text">Mejoras productivas documentadas en ensayos con vacas lecheras Holstein Friesian: mayor producción de leche, mejor persistencia de lactancia, reducción de trastornos metabólicos y eficiencia alimenticia superior medida en campo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="sec-tech" id="tecnologia">
+  <div class="wrap">
+    <div class="tech-grid">
+      <div class="reveal">
+        <div class="patent-pill">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          Patente en trámite
+        </div>
+        <span class="eyebrow eyebrow-light">Plataforma tecnológica fundacional</span>
+        <h2 class="white" style="margin-bottom:.9rem">El proceso que lo hace posible</h2>
+        <p class="lead light">Spray cooling con modificaciones propias (MSCM): tratamiento térmico de aceites, atomización a partículas de granulometría fina y cristalización en frío bajo 0 °C. El resultado es un ingrediente con características fisicoquímicas y nutricionales sin equivalente comercial en Chile.</p>
+        <ul class="feat-list">
+          <li>
+            <div class="feat-check"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="#5BA07F" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+            <span>Más del 90% de contenido graso — spray drying convencional no supera el 50%</span>
+          </li>
+          <li>
+            <div class="feat-check"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="#5BA07F" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+            <span>Granulometría fina (&lt;4 µm): mayor absorción intestinal y acción enzimática superior</span>
+          </li>
+          <li>
+            <div class="feat-check"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="#5BA07F" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+            <span>Libre de dioxinas y ácidos grasos trans. Estable en condiciones ambientales extremas</span>
+          </li>
+          <li>
+            <div class="feat-check"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="#5BA07F" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+            <span>Encapsula aminoácidos, vitaminas y aceites esenciales con protección ruminal &gt;90%</span>
+          </li>
+          <li>
+            <div class="feat-check"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="#5BA07F" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+            <span>Alta fluidez y miscibilidad: mezclado industrial homogéneo y menor costo operacional</span>
+          </li>
+        </ul>
+      </div>
+      <div class="tech-cards reveal">
+        <div class="tc">
+          <div class="tc-num">&gt;90<s>%</s></div>
+          <div class="tc-label">Contenido graso vs. 50% máx. en spray drying convencional</div>
+        </div>
+        <div class="tc">
+          <div class="tc-num">&lt;4<s> µm</s></div>
+          <div class="tc-label">Granulometría para máxima absorción intestinal</div>
+        </div>
+        <div class="tc">
+          <div class="tc-num">&gt;90<s>%</s></div>
+          <div class="tc-label">Protección ruminal de nutrientes encapsulados (bypass)</div>
+        </div>
+        <div class="tc">
+          <div class="tc-num">6<s>h+</s></div>
+          <div class="tc-label">Tiempo de sedimentación en suspensión acuosa</div>
+        </div>
+        <div class="tc span2">
+          <div style="font-size:10px;font-weight:700;color:rgba(74,140,110,.8);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem">Ventaja competitiva documentada</div>
+          <div class="tc-body">La competencia importada ofrece <strong>metionina y colina por separado</strong>. La investigación Gonzaga demuestra que la suplementación <strong>simultánea y protegida</strong> de ambas es la única vía para obtener resultados reales en producción de leche, dado el rol conjunto en el metabolismo hepático y la síntesis de VLDL.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISTRIBUTOR MODEL -->
+<section class="sec-dist" id="distribuidores">
+  <div class="wrap">
+    <div class="dist-grid">
+      <div class="reveal">
+        <span class="eyebrow">Modelo comercial</span>
+        <div class="div-line"></div>
+        <h2>Comercialización exclusiva<br>a través de distribuidores</h2>
+        <p class="lead" style="margin-bottom:1.75rem">Los productos Gonzaga llegan al mercado a través de una red de distribuidores técnicos especializados. Este modelo garantiza asesoría profesional en cada punto de venta y permite escalar la distribución sin comprometer la calidad de la implementación nutricional.</p>
+        <p class="lead" style="font-size:15px">Si usted es un <strong>productor, veterinario o nutricionista</strong>, contáctenos para encontrar el distribuidor autorizado más cercano a su zona.</p>
+        <div class="dist-tags">
+          <span class="dist-tag">Productores lecheros</span>
+          <span class="dist-tag">Médicos veterinarios</span>
+          <span class="dist-tag">Nutricionistas animales</span>
+          <span class="dist-tag">Empresas salmoneras</span>
+          <span class="dist-tag">Cooperativas agrícolas</span>
+          <span class="dist-tag">Inversionistas</span>
+        </div>
+      </div>
+      <div class="dist-visual reveal">
+        <div style="font-size:12px;font-weight:700;color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.25rem">Cómo llega el producto a su campo</div>
+        <div class="dist-flow">
+          <div class="df-step">
+            <div class="df-num">I+D</div>
+            <div>
+              <div class="df-title">Investigación &amp; Desarrollo — Gonzaga</div>
+              <div class="df-desc">Formulación, validación científica, control de calidad y especificaciones técnicas bajo estándares propios.</div>
+            </div>
+          </div>
+          <div class="df-step">
+            <div class="df-num">MFG</div>
+            <div>
+              <div class="df-title">Fabricación — Partners certificados</div>
+              <div class="df-desc">Producción industrial bajo protocolos Gonzaga. Equipos y procesos validados por el equipo técnico de la empresa.</div>
+            </div>
+          </div>
+          <div class="df-step">
+            <div class="df-num green">DIST</div>
+            <div>
+              <div class="df-title">Red de distribuidores autorizados</div>
+              <div class="df-desc">Distribuidores con capacitación técnica Gonzaga. Cobertura en Chile y mercados latinoamericanos.</div>
+            </div>
+          </div>
+          <div class="df-step">
+            <div class="df-num green">USO</div>
+            <div>
+              <div class="df-title">Productor / Profesional técnico</div>
+              <div class="df-desc">Implementación con soporte técnico del distribuidor y acceso a asesoría del equipo Gonzaga cuando sea requerido.</div>
+            </div>
+          </div>
+        </div>
+        <div class="dist-note">
+          <strong>¿Es usted distribuidor o desea serlo?</strong> Contáctenos para conocer las condiciones de representación técnica en su región. Buscamos socios con capacidad de asesoría veterinaria o nutricional.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="productos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Portafolio de productos</span>
+      <div class="div-line"></div>
+      <h2>Seis líneas sobre una misma plataforma tecnológica</h2>
+      <p class="lead">Todos los productos Gonzaga se desarrollan sobre la tecnología propietaria de aceite vegetal en polvo. Cada línea está optimizada para su especie y etapa productiva objetivo, con formulaciones basadas en evidencia científica propia.</p>
+    </div>
+
+    <!-- Fila 1: productos estrella rumiantes -->
+    <div class="prod-grid-top">
+
+      <!-- Met/Col Plus -->
+      <div class="pcard feat reveal">
+        <div class="pcard-stripe stripe-navy"></div>
+        <div class="pcard-tag tag-navy">Rumiantes lecheros — Producto estrella</div>
+        <div class="pcard-name">Met/Col Plus</div>
+        <p class="pcard-desc">Suplemento nutricional para vacas, cabras y ovejas lecheras en período periparto. Metionina, colina y vitaminas del complejo B (ácido fólico, biotina, B12, niacina) encapsulados en grasa vegetal by-pass. Protección ruminal &gt;90%. Presentación en micropellets de 3 mm.</p>
+        <ul class="pcard-pts">
+          <li>Previene síndrome hígado graso y cetosis postparto</li>
+          <li>Aumenta producción de leche y persistencia de lactancia</li>
+          <li>Mejora parámetros reproductivos del rebaño</li>
+          <li>Suplementación simultánea Met+Col: único modo de obtener resultados hepáticos reales</li>
+        </ul>
+        <div class="pcard-result">
+          <div class="pr-label">Ensayo clínico Holstein Friesian — datos propios</div>
+          <div class="pr-row"><span class="pr-val">+21.4%</span><span class="pr-desc">producción de leche vs. control (días 0–150)</span></div>
+          <div class="pr-row"><span class="pr-val">73.1%</span><span class="pr-desc">persistencia de lactancia (+10 pts vs. control)</span></div>
+          <div class="pr-row"><span class="pr-val">3.48%</span><span class="pr-desc">proteína láctea vs. 3.06% grupo control</span></div>
+        </div>
+      </div>
+
+      <!-- AminoMet -->
+      <div class="pcard feat reveal">
+        <div class="pcard-stripe stripe-green"></div>
+        <div class="pcard-tag tag-green">Rumiantes lecheros</div>
+        <div class="pcard-name">AminoMet</div>
+        <p class="pcard-desc">Suplemento especializado en aminoácidos limitantes protegidos para vacas de alta producción en dietas maíz-dependientes. Maximiza el aporte post-ruminal de aminoácidos esenciales donde la síntesis microbiana resulta insuficiente para cubrir los requerimientos del animal.</p>
+        <ul class="pcard-pts">
+          <li>Aminoácidos limitantes encapsulados por tecnología Gonzaga</li>
+          <li>Optimiza síntesis de proteína láctea y eficiencia de conversión</li>
+          <li>Complementa y potencia el efecto de Met/Col Plus en alta producción</li>
+          <li>Compatible con sistemas TMR y dietas base maíz / forrajes</li>
+        </ul>
+        <div class="pcard-result">
+          <div class="pr-label">Indicaciones de uso</div>
+          <div class="pr-row"><span class="pr-val" style="font-size:13.5px">Vacas &gt;35 L/día</span><span class="pr-desc">con déficit de aminoácidos en dietas base maíz</span></div>
+          <div class="pr-row"><span class="pr-val" style="font-size:13.5px">Periparto</span><span class="pr-desc">soporte aminoacídico en período de transición</span></div>
+          <div class="pr-row"><span class="pr-val" style="font-size:13.5px">Peak lactancia</span><span class="pr-desc">maximizar potencial genético de producción proteica</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 2: 4 productos -->
+    <div class="prod-grid-bot">
+
+      <!-- Aceite en Polvo -->
+      <div class="pcard reveal">
+        <div class="pcard-stripe stripe-navy"></div>
+        <div class="pcard-tag tag-mid">Ingrediente base</div>
+        <div class="pcard-name">Aceite Vegetal en Polvo</div>
+        <p class="pcard-desc">Grasa vegetal en polvo de alta concentración lipídica (&gt;90%), libre de dioxinas y ácidos grasos trans. Base de toda la plataforma tecnológica Gonzaga.</p>
+        <ul class="pcard-pts">
+          <li>Granulometría &lt;4 µm, alta fluidez y miscibilidad</li>
+          <li>Estable en condiciones ambientales extremas</li>
+          <li>Aplicaciones en bovinos, porcinos, aves y acuicultura</li>
+        </ul>
+      </div>
+
+      <!-- Sustitutos Lácteos -->
+      <div class="pcard reveal">
+        <div class="pcard-stripe stripe-mid"></div>
+        <div class="pcard-tag tag-mid">Crianza artificial</div>
+        <div class="pcard-name">Sustitutos Lácteos</div>
+        <p class="pcard-desc">Fórmulas para crianza artificial de terneros, cabritos y corderos. Validados en ensayos propios en la PUC Chile con crecimiento acelerado y menor mortalidad.</p>
+        <ul class="pcard-pts">
+          <li>Proteína de alta calidad biológica con aminoácidos esenciales</li>
+          <li>Grasa vegetal en polvo Gonzaga como fuente energética</li>
+          <li>Ensayos propios: terneras Holstein Friesian, Pirque</li>
+        </ul>
+      </div>
+
+      <!-- Sales Minerales -->
+      <div class="pcard reveal">
+        <div class="pcard-stripe stripe-soft"></div>
+        <div class="pcard-tag tag-green">Rumiantes</div>
+        <div class="pcard-name">Sales Minerales Funcionales</div>
+        <p class="pcard-desc">Minerales enriquecidos con aminoácidos protegidos y vitaminas by-pass para cubrir requerimientos específicos de vacas, cabras y ovejas de alta producción.</p>
+        <ul class="pcard-pts">
+          <li>Vitaminas y aminoácidos con protección ruminal</li>
+          <li>Formulaciones específicas por especie y etapa</li>
+          <li>Alta biodisponibilidad por tecnología de encapsulación</li>
+        </ul>
+      </div>
+
+      <!-- Salmones -->
+      <div class="pcard reveal">
+        <div class="pcard-stripe stripe-mid"></div>
+        <div class="pcard-tag tag-blue">Acuicultura</div>
+        <div class="pcard-name">Alimento para Salmones</div>
+        <p class="pcard-desc">Ingredientes y alimentos peletizados para la industria salmonera, con Omega-3 encapsulados. Competitivos frente a productos importados en precio y estabilidad nutricional.</p>
+        <ul class="pcard-pts">
+          <li>EPA/DHA protegidos para mayor estabilidad nutricional</li>
+          <li>Tecnología de peletizado de alta densidad y calidad</li>
+          <li>Menor costo de formulación vs. competencia importada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE / DR GONZALEZ -->
+<section class="sec-sci" id="investigacion">
+  <div class="wrap">
+    <div class="sci-grid">
+      <div class="reveal">
+        <div class="dr-card">
+          <div class="dr-av">FG</div>
+          <div class="dr-n">Dr. Fernando González Muñizaga</div>
+          <div class="dr-r">Founder &amp; Chief Scientific Officer</div>
+          <p class="dr-bio">Médico Veterinario con más de 40 años de trayectoria en nutrición animal, producción de leche y desarrollo tecnológico. Ha investigado y enseñado en la Universidad de Chile y en la Pontificia Universidad Católica de Chile, dirigiendo ensayos en rumiantes, sustitutos lácteos y metabolismo hepático. Su intención es transferir este conocimiento a Gonzaga para que perdure por generaciones.</p>
+          <ul class="dr-creds">
+            <li><div class="cr-dot"></div>Médico Veterinario — especialista en nutrición animal y producción de leche</li>
+            <li><div class="cr-dot"></div>U. de Chile · PUC Chile — docencia e investigación de largo aliento</li>
+            <li><div class="cr-dot"></div>Proyecto Corfo aprobado 2018 (17 ITE2-89-188) — validación industrial</li>
+            <li><div class="cr-dot"></div>Inventor — tecnología de aceite vegetal en polvo, patente en trámite</li>
+            <li><div class="cr-dot"></div>Consultor internacional en nutrición de rumiantes y acuicultura</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Fundamento científico</span>
+        <div class="div-line"></div>
+        <h2>Cuatro décadas de investigación aplicada como ventaja competitiva</h2>
+        <p class="lead" style="margin-bottom:1.5rem">A diferencia de empresas que comercializan ingredientes de terceros, cada producto Gonzaga nace desde investigación propia, validación en campo y generación de propiedad intelectual. El Dr. González lidera activamente el área de I+D.</p>
+        <p class="lead" style="font-size:15px;max-width:100%">La investigación abarca desde el metabolismo hepático de la vaca lechera y la formulación de sustitutos lácteos para terneros, hasta la encapsulación de lípidos para acuicultura. Cada área tiene evidencia propia documentada.</p>
+        <div class="r-tags">
+          <span class="r-tag">Nutrición de rumiantes</span>
+          <span class="r-tag">Producción de leche</span>
+          <span class="r-tag">Metabolismo hepático</span>
+          <span class="r-tag">Nutrición de transición</span>
+          <span class="r-tag">Sustitutos lácteos</span>
+          <span class="r-tag">Aminoácidos protegidos</span>
+          <span class="r-tag">Vitaminas by-pass</span>
+          <span class="r-tag">Grasas protegidas</span>
+          <span class="r-tag">Eficiencia alimenticia</span>
+          <span class="r-tag">Acuicultura</span>
+          <span class="r-tag">Nutrición de precisión</span>
+        </div>
+        <div class="sci-quote">
+          <p>"La investigación lleva más de cuatro décadas. Gonzaga es el vehículo para que ese conocimiento continúe siendo útil, se transfiera al sector productivo y perdure más allá de una sola generación."</p>
+          <cite>— Dr. Fernando González Muñizaga, CSO Gonzaga</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMY -->
+<section class="sec-acad" id="academy">
+  <div class="wrap">
+    <div class="reveal" style="max-width:640px">
+      <span class="eyebrow eyebrow-light">Gonzaga Academy</span>
+      <div class="div-line" style="background:var(--green-lt)"></div>
+      <h2 class="white">Transferencia de conocimiento científico</h2>
+      <p class="lead light">El saber acumulado en cuatro décadas se convierte en programas de formación para veterinarios, nutricionistas, productores y distribuidores técnicos.</p>
+    </div>
+    <div class="acad-grid">
+      <div class="ac reveal">
+        <div class="ac-ico">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#5BA07F" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+        </div>
+        <div class="ac-t">Cursos técnicos</div>
+        <p class="ac-d">Nutrición de transición, producción de leche, metabolismo hepático, sustitutos lácteos y formulación de alimentos. Formatos presencial y online.</p>
+      </div>
+      <div class="ac reveal">
+        <div class="ac-ico">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#5BA07F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="ac-t">Webinars y seminarios</div>
+        <p class="ac-d">Actualización científica y transferencia tecnológica en formato online y presencial con participación latinoamericana.</p>
+      </div>
+      <div class="ac reveal">
+        <div class="ac-ico">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#5BA07F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <div class="ac-t">Capacitación para distribuidores</div>
+        <p class="ac-d">Programas específicos para la red de distribuidores autorizados Gonzaga. Formación técnica profunda en el portafolio de productos.</p>
+      </div>
+      <div class="ac reveal">
+        <div class="ac-ico">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#5BA07F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="ac-t">Asesoría internacional</div>
+        <p class="ac-d">Dr. González disponible como consultor técnico para empresas, instituciones y proyectos en Latinoamérica y mercados internacionales.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.75rem" class="reveal">
+      <a href="#contacto" class="btn btn-navy" style="display:inline-flex">
+        Consultar programas
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Contacto</span>
+      <div class="div-line"></div>
+      <h2>Hablemos sobre su proyecto</h2>
+      <p class="lead">Para consultas técnicas, solicitudes de distribución, oportunidades comerciales o información sobre programas Academy. Respondemos en menos de 48 horas.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal ci">
+        <h3>¿A quién atendemos?</h3>
+        <p>Distribuidores actuales y potenciales, veterinarios y nutricionistas, productores interesados en incorporar los productos a través de su distribuidor, investigadores e instituciones académicas, e inversionistas.</p>
+        <div class="c-row">
+          <div class="c-ico"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+          contacto@gonzagatech.cl
+        </div>
+        <div class="c-row">
+          <div class="c-ico"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg></div>
+          gonzagatech.cl
+        </div>
+        <div class="c-row">
+          <div class="c-ico"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+          Santiago, Chile
+        </div>
+        <div class="a-label">Motivo de contacto</div>
+        <div class="a-wrap">
+          <span class="a-tag">Distribuidor potencial</span>
+          <span class="a-tag">Consulta técnica</span>
+          <span class="a-tag">Met/Col Plus</span>
+          <span class="a-tag">AminoMet</span>
+          <span class="a-tag">Aceite en Polvo</span>
+          <span class="a-tag">Sustitutos Lácteos</span>
+          <span class="a-tag">Sales Minerales</span>
+          <span class="a-tag">Salmones</span>
+          <span class="a-tag">Academy</span>
+          <span class="a-tag">Inversión</span>
+        </div>
+      </div>
+      <div class="cform reveal">
+        <div class="f-row">
+          <div class="fg"><label class="fl">Nombre</label><input class="fi" type="text" placeholder="Su nombre completo"></div>
+          <div class="fg"><label class="fl">Empresa / Institución</label><input class="fi" type="text" placeholder="Nombre de su organización"></div>
+        </div>
+        <div class="f-row">
+          <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" type="email" placeholder="correo@empresa.cl"></div>
+          <div class="fg"><label class="fl">País</label><input class="fi" type="text" placeholder="Chile"></div>
+        </div>
+        <div class="fg">
+          <label class="fl">Motivo de contacto</label>
+          <select class="fs">
+            <option value="">Seleccione una opción</option>
+            <option>Quiero ser distribuidor autorizado Gonzaga</option>
+            <option>Met/Col Plus — Salud metabólica en rumiantes</option>
+            <option>AminoMet — Aminoácidos protegidos</option>
+            <option>Aceite Vegetal en Polvo — Ingrediente base</option>
+            <option>Sustitutos Lácteos de Alto Desempeño</option>
+            <option>Sales Minerales Funcionales</option>
+            <option>Alimento para Salmones</option>
+            <option>Academy / Cursos y Seminarios</option>
+            <option>Asesoría técnica internacional</option>
+            <option>Inversión / Alianza estratégica</option>
+            <option>Otra consulta</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Mensaje</label><textarea class="fta" placeholder="Describa brevemente su consulta, empresa o proyecto. Un profesional técnico Gonzaga responderá en menos de 48 horas."></textarea></div>
+        <button class="fsub">Enviar solicitud →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="#" class="logo" style="text-decoration:none">
+        <svg width="38" height="32" viewBox="0 0 46 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 14 L4 26 L13 31.5 L22 26 L22 14 L13 8.5 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/>
+          <circle cx="4" cy="20" r="2.5" fill="white"/>
+          <path d="M24 7 L24 19 L33 24.5 L42 19 L42 7 L33 1.5 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/>
+          <circle cx="42" cy="13" r="2.5" fill="white"/>
+          <circle cx="23" cy="19" r="4.5" fill="#4A8C6E"/>
+        </svg>
+        <div class="logo-text" style="margin-left:10px">
+          <span class="logo-name" style="color:white">GONZAGA</span>
+          <span class="logo-sub">Science Driven Animal Nutrition</span>
+        </div>
+      </a>
+      <p>Transformamos conocimiento científico en soluciones nutricionales avanzadas para la producción animal de alto desempeño.</p>
+    </div>
+    <div>
+      <div class="foot-col-t">Empresa</div>
+      <ul class="foot-links">
+        <li><a href="#tecnologia">Tecnología</a></li>
+        <li><a href="#distribuidores">Distribuidores</a></li>
+        <li><a href="#investigacion">Investigación</a></li>
+        <li><a href="#academy">Academy</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-t">Productos</div>
+      <ul class="foot-links">
+        <li><a href="#productos">Met/Col Plus</a></li>
+        <li><a href="#productos">AminoMet</a></li>
+        <li><a href="#productos">Aceite en Polvo</a></li>
+        <li><a href="#productos">Sustitutos Lácteos</a></li>
+        <li><a href="#productos">Sales Minerales</a></li>
+        <li><a href="#productos">Alimento Salmones</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-t">Recursos</div>
+      <ul class="foot-links">
+        <li><a href="#investigacion">Dr. Fernando González</a></li>
+        <li><a href="#academy">Gonzaga Academy</a></li>
+        <li><a href="#contacto">Red de distribuidores</a></li>
+        <li><a href="#contacto">Inversionistas</a></li>
+        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span class="foot-copy">© 2025 Gonzaga — gonzagatech.cl. Todos los derechos reservados.</span>
+    <span class="foot-tag">Science Driven Animal Nutrition</span>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8));
+function toggleNav(){ nav.classList.toggle('open') }
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting){ setTimeout(() => e.target.classList.add('in'), i * 65); io.unobserve(e.target) }
+  })
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
