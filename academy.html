@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="page" content="academy">
+<title>Gonzaga Academy | Formación y Asesoría Especializada</title>
+<meta name="description" content="Cursos, asesorías técnicas, charlas internacionales y capacitación en nutrición animal, manejo de lecherías, bienestar animal y estrés calórico.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+.page-hero{background:var(--navy-deep);padding:140px 3rem 80px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.sec-std{padding:80px 3rem;border-bottom:1px solid var(--border)}
+.sec-std:nth-child(even){background:var(--off)}
+.std-inner{max-width:1200px;margin:0 auto}
+
+/* OFFERINGS GRID */
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.offer-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:2.25rem;transition:var(--ease);position:relative;overflow:hidden}
+.offer-card:hover{box-shadow:var(--sh-lg);transform:translateY(-3px)}
+.oc-top{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
+.oc-ico{width:52px;height:52px;min-width:52px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center}
+.oc-title{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:.3rem;letter-spacing:-.01em}
+.oc-sub{font-size:12px;font-weight:600;color:var(--green);letter-spacing:.04em;text-transform:uppercase}
+.oc-desc{font-size:14.5px;color:var(--gray-dk);line-height:1.73;margin-bottom:1.25rem}
+.oc-pts{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.oc-pts li{font-size:13.5px;color:var(--gray-dk);display:flex;align-items:flex-start;gap:9px;line-height:1.55}
+.oc-pts li::before{content:'';width:5px;height:5px;min-width:5px;background:var(--green);border-radius:50%;margin-top:7px}
+
+/* TOPICS */
+.topics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.topic-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;transition:var(--ease)}
+.topic-card:hover{box-shadow:var(--sh-md);border-color:rgba(74,140,110,.3)}
+.topic-ico{width:44px;height:44px;background:var(--green-pale);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.topic-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.topic-desc{font-size:13.5px;color:var(--gray-dk);line-height:1.68}
+
+/* SPEAKER SECTION */
+.speaker-grid{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:start;background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:2.5rem 3rem;box-shadow:var(--sh-md)}
+.sp-av{width:100px;height:100px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:var(--green-lt);letter-spacing:.04em;flex-shrink:0}
+.sp-topics{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.sp-topic{font-size:12px;font-weight:500;background:var(--navy-soft);color:var(--navy);padding:4px 12px;border-radius:50px}
+
+/* CASES */
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.case-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;border-left:4px solid var(--green);border-radius:0 var(--r-lg) var(--r-lg) 0}
+.case-type{font-size:10.5px;font-weight:700;color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem}
+.case-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:.6rem}
+.case-text{font-size:13.5px;color:var(--gray-dk);line-height:1.68}
+
+/* FORMATS */
+.formats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2.5rem}
+.fmt{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.6rem;text-align:center;transition:var(--ease)}
+.fmt:hover{border-color:var(--green);background:var(--green-pale)}
+.fmt-ico{font-size:28px;margin-bottom:.75rem}
+.fmt-title{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:.4rem}
+.fmt-desc{font-size:12.5px;color:var(--gray-dk);line-height:1.6}
+
+/* CONTACT FORM */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4.5rem;align-items:start}
+
+@media(max-width:960px){
+  .page-hero{padding:120px 1.5rem 60px}
+  .sec-std{padding:60px 1.5rem}
+  .offer-grid{grid-template-columns:1fr}
+  .topics-grid{grid-template-columns:1fr 1fr}
+  .speaker-grid{grid-template-columns:1fr;text-align:center}
+  .sp-av{margin:0 auto}
+  .sp-topics{justify-content:center}
+  .cases-grid{grid-template-columns:1fr}
+  .formats-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:540px){.topics-grid{grid-template-columns:1fr}.formats-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="logo"><svg width="46" height="38" viewBox="0 0 46 38" fill="none"><path d="M4 14 L4 26 L13 31.5 L22 26 L22 14 L13 8.5 Z" stroke="#1E2D5A" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="4" cy="20" r="2.5" fill="#1E2D5A"/><path d="M24 7 L24 19 L33 24.5 L42 19 L42 7 L33 1.5 Z" stroke="#1E2D5A" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="42" cy="13" r="2.5" fill="#1E2D5A"/><circle cx="23" cy="19" r="4.5" fill="#4A8C6E"/></svg><div class="logo-text"><span class="logo-name">GONZAGA</span><span class="logo-sub">Science Driven Animal Nutrition</span></div></a>
+  <ul class="nav-links" id="nav-links"><li><a href="index.html">Inicio</a></li><li><a href="tecnologia.html">Tecnología</a></li><li><a href="productos.html">Productos</a></li><li><a href="academy.html" class="active">Academy</a></li><li><a href="investigacion.html">Dr. González</a></li><li><a href="contacto.html" class="nav-cta">Contacto</a></li></ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menú">☰</button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="reveal">
+      <span class="eyebrow eyebrow-light">Gonzaga Academy</span>
+      <div class="div-line" style="background:var(--green-lt)"></div>
+      <h1 style="color:white;margin-bottom:1rem">Conocimiento científico<br>aplicado al <em>campo real</em></h1>
+      <p class="lead light" style="max-width:620px">Formación técnica especializada, asesorías personalizadas y charlas internacionales respaldadas por más de 40 años de experiencia activa en lecherías, empresas de alimentos e investigación aplicada en Chile y Latinoamérica.</p>
+      <div style="display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap">
+        <a href="#contacto-academy" class="btn btn-green">Solicitar asesoría o curso</a>
+        <a href="#conferencista" class="btn btn-ghost-white">Contratar como conferencista</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OFERTAS PRINCIPALES -->
+<div class="sec-std">
+  <div class="std-inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Servicios Academy</span>
+      <div class="div-line"></div>
+      <h2>Cuatro líneas de servicio especializado</h2>
+      <p class="lead">Cada servicio está directamente respaldado por la experiencia activa del Dr. Fernando González en asesoría de lecherías, empresas de alimentos e investigación aplicada.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card reveal">
+        <div class="oc-top">
+          <div class="oc-ico" style="background:var(--navy-soft)"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#1E2D5A" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg></div>
+          <div><div class="oc-title">Cursos técnicos</div><div class="oc-sub">Presencial · Online · In-company</div></div>
+        </div>
+        <p class="oc-desc">Programas de formación técnica profunda para veterinarios, nutricionistas, productores y distribuidores. Contenidos desarrollados con base en investigación propia y experiencia de campo activa en Chile.</p>
+        <ul class="oc-pts">
+          <li>Nutrición de vacas de transición y período periparto</li>
+          <li>Producción de leche y persistencia de lactancia</li>
+          <li>Metabolismo hepático y prevención de trastornos metabólicos</li>
+          <li>Sustitutos lácteos y crianza artificial de terneros</li>
+          <li>Nutrición de cabras y ovejas lecheras</li>
+          <li>Formulación de alimentos y uso de tecnologías protegidas</li>
+          <li>Nutrición en acuicultura — bases y aplicaciones</li>
+        </ul>
+      </div>
+      <div class="offer-card reveal">
+        <div class="oc-top">
+          <div class="oc-ico" style="background:var(--green-pale)"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg></div>
+          <div><div class="oc-title">Asesorías técnicas</div><div class="oc-sub">Empresas · Lecherías · Cooperativas</div></div>
+        </div>
+        <p class="oc-desc">Asesorías personalizadas basadas en diagnóstico real del sistema productivo. El Dr. González lleva décadas asesorando lecherías activas en Chile, con resultados documentados en producción, reproducción y salud del rebaño.</p>
+        <ul class="oc-pts">
+          <li>Diagnóstico y optimización del sistema nutricional</li>
+          <li>Manejo integral de lecherías — desde alimentación hasta reproducción</li>
+          <li>Implementación de protocolos de transición y postparto</li>
+          <li>Manejo de estrés calórico y sus efectos en producción</li>
+          <li>Diseño y evaluación de sistemas compost barn</li>
+          <li>Asesoría a empresas de alimentos en desarrollo de productos</li>
+          <li>Evaluación técnica de ingredientes y formulaciones</li>
+        </ul>
+      </div>
+      <div class="offer-card reveal">
+        <div class="oc-top">
+          <div class="oc-ico" style="background:#E6F1FB"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#185FA5" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <div><div class="oc-title">Charlas internacionales</div><div class="oc-sub">Congresos · Seminarios · Eventos</div></div>
+        </div>
+        <p class="oc-desc">El Dr. González disponible como conferencista experto para eventos técnicos, congresos veterinarios, seminarios de nutrición animal y eventos de la industria láctea en Chile y Latinoamérica.</p>
+        <ul class="oc-pts">
+          <li>Ponencias en español para audiencias técnicas y productores</li>
+          <li>Conferencias de 45 a 90 minutos con preguntas</li>
+          <li>Adaptación del contenido al perfil del evento y audiencia</li>
+          <li>Disponibilidad para eventos presenciales y virtuales</li>
+          <li>Material de apoyo y bibliografía incluidos</li>
+          <li>Experiencia comprobada en congresos nacionales e internacionales</li>
+        </ul>
+      </div>
+      <div class="offer-card reveal">
+        <div class="oc-top">
+          <div class="oc-ico" style="background:var(--navy-soft)"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#1E2D5A" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
+          <div><div class="oc-title">Capacitación para distribuidores</div><div class="oc-sub">Red Gonzaga</div></div>
+        </div>
+        <p class="oc-desc">Programa específico de formación técnica para distribuidores autorizados Gonzaga. Incluye capacitación profunda en el portafolio de productos, bases científicas, indicaciones de uso y manejo de objeciones técnicas.</p>
+        <ul class="oc-pts">
+          <li>Formación en plataforma tecnológica MSCM y diferenciación competitiva</li>
+          <li>Protocolo de uso de Met/Col Plus, AminoMet y demás productos</li>
+          <li>Manejo de fichas técnicas y comunicación con productores</li>
+          <li>Actualización periódica con nuevos resultados e investigaciones</li>
+          <li>Acceso a material técnico de apoyo Gonzaga</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEMAS ESPECIALIZADOS -->
+<div class="sec-std">
+  <div class="std-inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Temas especializados</span>
+      <div class="div-line"></div>
+      <h2>Áreas de expertise exclusivo</h2>
+      <p class="lead">Más allá de la nutrición convencional, el Dr. González ha desarrollado expertise profundo en áreas que afectan directamente la productividad y rentabilidad de los sistemas lecheros modernos.</p>
+    </div>
+    <div class="topics-grid">
+      <div class="topic-card reveal">
+        <div class="topic-ico"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
+        <div class="topic-title">Estrés calórico en bovinos lecheros</div>
+        <p class="topic-desc">El estrés calórico reduce significativamente la producción de leche, la eficiencia reproductiva y el bienestar animal. Estrategias nutricionales, de manejo y de infraestructura para mitigar su impacto en condiciones chilenas y latinoamericanas.</p>
+      </div>
+      <div class="topic-card reveal">
+        <div class="topic-ico"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></div>
+        <div class="topic-title">Sistemas compost barn</div>
+        <p class="topic-desc">Diseño, manejo y evaluación de sistemas compost barn para bovinos lecheros. Una alternativa de bienestar animal con impacto en salud de pezuñas, condición corporal, producción y rentabilidad del sistema productivo.</p>
+      </div>
+      <div class="topic-card reveal">
+        <div class="topic-ico"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+        <div class="topic-title">Bienestar animal en sistemas lecheros</div>
+        <p class="topic-desc">Evaluación e implementación de protocolos de bienestar animal. El bienestar animal no es solo una exigencia ética o de mercado — es un determinante directo de producción, reproducción y eficiencia del rebaño.</p>
+      </div>
+      <div class="topic-card reveal">
+        <div class="topic-ico"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+        <div class="topic-title">Reproducción y fertilidad del rebaño</div>
+        <p class="topic-desc">La relación entre nutrición, balance energético y reproducción en vacas lecheras. Protocolos para mejorar tasa de concepción, reducir días abiertos y aumentar la permanencia de las vacas en el rebaño.</p>
+      </div>
+      <div class="topic-card reveal">
+        <div class="topic-ico"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+        <div class="topic-title">Nutrición de precisión en lecherías</div>
+        <p class="topic-desc">Formulación de dietas ajustadas a las necesidades reales del rebaño. Uso de tecnologías de ingredientes protegidos para mejorar la eficiencia de conversión y reducir el costo por litro de leche producido.</p>
+      </div>
+      <div class="topic-card reveal">
+        <div class="topic-ico"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
+        <div class="topic-title">Metabolismo hepático y trastornos del periparto</div>
+        <p class="topic-desc">Comprensión profunda del síndrome hígado graso, cetosis, hipocalcemia subclínica y otros trastornos del período de transición. Estrategias nutricionales y de manejo para reducir su incidencia y costo en el rebaño.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONFERENCISTA -->
+<div class="sec-std" id="conferencista">
+  <div class="std-inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Conferencista internacional</span>
+      <div class="div-line"></div>
+      <h2>El Dr. González como speaker experto</h2>
+    </div>
+    <div class="speaker-grid reveal">
+      <div class="sp-av">FG</div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem">Dr. Fernando González Muñizaga — Conferencista técnico</div>
+        <h3 style="margin-bottom:.75rem;font-size:1.3rem">Cuarenta años de investigación aplicada, comunicados con claridad para el campo</h3>
+        <p style="font-size:15px;color:var(--gray-dk);line-height:1.75;margin-bottom:1.25rem">El Dr. González combina rigurosidad científica con experiencia directa en sistemas productivos reales. Sus presentaciones son valoradas por su capacidad de transformar conceptos complejos de metabolismo y nutrición en estrategias prácticas y aplicables en el campo. Actualmente asesora lecherías en Chile y empresas de alimentos, lo que mantiene su visión siempre vinculada con la realidad productiva.</p>
+        <div class="sp-topics">
+          <span class="sp-topic">Nutrición de transición</span>
+          <span class="sp-topic">Hígado graso y cetosis</span>
+          <span class="sp-topic">Estrés calórico</span>
+          <span class="sp-topic">Compost barn</span>
+          <span class="sp-topic">Reproducción bovina</span>
+          <span class="sp-topic">Sustitutos lácteos</span>
+          <span class="sp-topic">Tecnologías protegidas</span>
+          <span class="sp-topic">Acuicultura</span>
+          <span class="sp-topic">Bienestar animal</span>
+          <span class="sp-topic">Nutrición de precisión</span>
+        </div>
+        <div style="margin-top:1.5rem"><a href="#contacto-academy" class="btn btn-navy">Solicitar disponibilidad como conferencista</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASOS REALES -->
+<div class="sec-std">
+  <div class="std-inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Experiencia en campo</span>
+      <div class="div-line"></div>
+      <h2>Resultados en sistemas productivos reales</h2>
+      <p class="lead">El Dr. González asesora activamente lecherías y empresas en Chile. Estos son ejemplos genéricos de los tipos de intervenciones y resultados obtenidos en clientes activos.</p>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card reveal">
+        <div class="case-type">Asesoría lechería</div>
+        <div class="case-title">Lechería bovina — zona sur de Chile</div>
+        <p class="case-text">Diagnóstico nutricional completo y rediseño de dieta de transición. Implementación de suplementación con Met/Col Plus y protocolo de manejo periparto. Reducción significativa de incidencia de cetosis y hígado graso en la temporada siguiente, con aumento en producción de leche en el peak de lactancia.</p>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-type">Asesoría empresa</div>
+        <div class="case-title">Empresa de alimentos — desarrollo de producto</div>
+        <p class="case-text">Evaluación técnica de formulaciones para ingredientes nutricionales destinados a la industria de alimentos de consumo humano. Aplicación de tecnología de aceite vegetal en polvo para mejorar características funcionales y nutricionales del producto final.</p>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-type">Capacitación técnica</div>
+        <div class="case-title">Equipo técnico de distribuidora</div>
+        <p class="case-text">Programa de formación de 3 sesiones para equipo de ventas técnicas de empresa distribuidora de insumos ganaderos. Contenidos en nutrición de transición, metabolismo hepático y diferenciación de productos protegidos vs. convencionales. Mejora documentada en capacidad de asesoría a clientes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORMATOS -->
+<div class="sec-std" style="background:var(--off)">
+  <div class="std-inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Modalidades</span>
+      <div class="div-line"></div>
+      <h2>Formatos adaptados a cada necesidad</h2>
+    </div>
+    <div class="formats-grid">
+      <div class="fmt reveal"><div class="fmt-ico">🏫</div><div class="fmt-title">Presencial</div><div class="fmt-desc">Cursos y talleres en su empresa, establecimiento o instalaciones acordadas. Chile y Latinoamérica.</div></div>
+      <div class="fmt reveal"><div class="fmt-ico">💻</div><div class="fmt-title">Online / Webinar</div><div class="fmt-desc">Sesiones en vivo por videoconferencia. Ideal para equipos distribuidos o alcance internacional.</div></div>
+      <div class="fmt reveal"><div class="fmt-ico">🏢</div><div class="fmt-title">In-company</div><div class="fmt-desc">Programa diseñado específicamente para su empresa, con contenidos adaptados a su contexto productivo.</div></div>
+      <div class="fmt reveal"><div class="fmt-ico">🌎</div><div class="fmt-title">Conferencia internacional</div><div class="fmt-desc">Presentaciones en congresos, seminarios y eventos técnicos. Disponible para todo Latinoamérica.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FORMULARIO ACADEMY -->
+<div class="sec-std" id="contacto-academy">
+  <div class="std-inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Solicitar información</span>
+      <div class="div-line"></div>
+      <h2>Hablemos sobre su proyecto formativo</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h3>¿A quién está dirigido?</h3>
+        <p style="font-size:14.5px;color:var(--gray-dk);line-height:1.72;margin-bottom:1.75rem">Los servicios Academy están disponibles para productores lecheros, médicos veterinarios, nutricionistas animales, equipos técnicos de empresas, distribuidores Gonzaga, instituciones académicas y organizadores de eventos.</p>
+        <div style="display:flex;flex-direction:column;gap:.75rem">
+          <div style="display:flex;align-items:center;gap:11px;font-size:14px;color:var(--gray-dk)"><div style="width:34px;height:34px;min-width:34px;background:var(--green-pale);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>academy@gonzagatech.cl</div>
+          <div style="display:flex;align-items:center;gap:11px;font-size:14px;color:var(--gray-dk)"><div style="width:34px;height:34px;min-width:34px;background:var(--green-pale);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3"/></svg></div>gonzagatech.cl/academy</div>
+        </div>
+      </div>
+      <div class="cform reveal">
+        <div class="f-row">
+          <div class="fg"><label class="fl">Nombre</label><input class="fi" type="text" placeholder="Su nombre completo"></div>
+          <div class="fg"><label class="fl">Empresa / Institución</label><input class="fi" type="text" placeholder="Nombre de su organización"></div>
+        </div>
+        <div class="f-row">
+          <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" type="email" placeholder="correo@empresa.cl"></div>
+          <div class="fg"><label class="fl">País</label><input class="fi" type="text" placeholder="Chile"></div>
+        </div>
+        <div class="fg">
+          <label class="fl">¿Qué servicio le interesa?</label>
+          <select class="fs">
+            <option value="">Seleccione una opción</option>
+            <option>Curso técnico — nutrición y metabolismo</option>
+            <option>Curso técnico — producción de leche y manejo</option>
+            <option>Asesoría técnica para lechería</option>
+            <option>Asesoría para empresa de alimentos</option>
+            <option>Charla o conferencia internacional</option>
+            <option>Capacitación in-company para mi equipo</option>
+            <option>Capacitación para distribuidores Gonzaga</option>
+            <option>Webinar o seminario online</option>
+            <option>Otro — describo en el mensaje</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Cuéntenos sobre su necesidad</label><textarea class="fta" placeholder="Describa brevemente su equipo, empresa o contexto productivo, y qué tipo de formación o asesoría está buscando."></textarea></div>
+        <button class="fsub">Enviar solicitud →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand"><a href="index.html" class="logo" style="text-decoration:none"><svg width="38" height="32" viewBox="0 0 46 38" fill="none"><path d="M4 14 L4 26 L13 31.5 L22 26 L22 14 L13 8.5 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="4" cy="20" r="2.5" fill="white"/><path d="M24 7 L24 19 L33 24.5 L42 19 L42 7 L33 1.5 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="42" cy="13" r="2.5" fill="white"/><circle cx="23" cy="19" r="4.5" fill="#4A8C6E"/></svg><div class="logo-text" style="margin-left:10px"><span class="logo-name" style="color:white">GONZAGA</span><span class="logo-sub">Science Driven Animal Nutrition</span></div></a><p>Formación especializada y asesoría técnica respaldada por más de 40 años de investigación aplicada.</p></div>
+    <div><div class="foot-col-t">Academy</div><ul class="foot-links"><li><a href="#cursos">Cursos técnicos</a></li><li><a href="#asesorias">Asesorías</a></li><li><a href="#conferencista">Charlas internacionales</a></li><li><a href="#contacto-academy">Solicitar información</a></li></ul></div>
+    <div><div class="foot-col-t">Productos</div><ul class="foot-links"><li><a href="productos.html#metcol">Met/Col Plus</a></li><li><a href="productos.html#aminomet">AminoMet</a></li><li><a href="productos.html">Ver todos</a></li></ul></div>
+    <div><div class="foot-col-t">Contacto</div><ul class="foot-links"><li><a href="contacto.html">Contacto general</a></li><li><a href="investigacion.html">Dr. González</a></li><li><a href="mailto:academy@gonzagatech.cl">academy@gonzagatech.cl</a></li></ul></div>
+  </div>
+  <div class="foot-bottom"><span class="foot-copy">© 2025 Gonzaga — gonzagatech.cl. Todos los derechos reservados.</span><span class="foot-tag">Science Driven Animal Nutrition</span></div>
+</footer>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8));
+function toggleNav(){nav.classList.toggle('open')}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const io=new IntersectionObserver((e)=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('in'),i*65);io.unobserve(el.target)}})},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body></html>

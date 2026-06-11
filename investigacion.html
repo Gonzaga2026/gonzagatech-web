@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="page" content="investigacion">
+<title>Dr. Fernando González | GONZAGA</title>
+<meta name="description" content="Dr. Fernando González Muñizaga — Fundador y Chief Scientific Officer de Gonzaga. Más de 40 años asesorando lecherías e investigando nutrición animal en Chile.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+.page-hero{background:var(--off);padding:140px 3rem 80px;border-bottom:1px solid var(--border)}
+.page-hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:4rem;align-items:start}
+.dr-profile-av{width:160px;height:160px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;color:var(--green-lt);letter-spacing:.04em;flex-shrink:0;border:4px solid var(--border)}
+.dr-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.dr-chip{font-size:12px;font-weight:500;background:var(--white);border:1px solid var(--border);color:var(--navy);padding:4px 12px;border-radius:50px}
+.dr-current{display:inline-flex;align-items:center;gap:8px;background:var(--green-pale);border:1px solid rgba(74,140,110,.25);color:var(--green);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:50px;margin-bottom:1rem}
+.cur-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.sec-std{padding:80px 3rem;border-bottom:1px solid var(--border)}
+.sec-std:nth-child(even){background:var(--off)}
+.std-inner{max-width:1200px;margin:0 auto}
+
+/* EXPERTISE */
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.exp-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;transition:var(--ease);border-left:4px solid var(--green);border-radius:0 var(--r-lg) var(--r-lg) 0}
+.exp-card:hover{box-shadow:var(--sh-md)}
+.exp-area{font-size:10.5px;font-weight:700;color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem}
+.exp-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:.6rem}
+.exp-text{font-size:14px;color:var(--gray-dk);line-height:1.72}
+
+/* TRAJECTORY */
+.traj-list{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.traj-item{display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid var(--border-lt);align-items:start}
+.traj-item:last-child{border:none}
+.traj-year{font-size:13px;font-weight:700;color:var(--green);letter-spacing:.06em}
+.traj-title{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:.35rem}
+.traj-desc{font-size:14px;color:var(--gray-dk);line-height:1.65}
+
+/* RESEARCH */
+.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.res-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.6rem;transition:var(--ease)}
+.res-card:hover{box-shadow:var(--sh-md);border-color:rgba(74,140,110,.3)}
+.res-type{font-size:10px;font-weight:700;color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+.res-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:.5rem;line-height:1.4}
+.res-desc{font-size:13px;color:var(--gray-dk);line-height:1.65}
+
+/* QUOTE */
+.quote-block{background:var(--navy);border-radius:var(--r-xl);padding:3rem;margin-top:2.5rem;position:relative}
+.quote-block::before{content:'"';position:absolute;top:1.5rem;left:2rem;font-size:6rem;color:rgba(74,140,110,.2);line-height:1;font-family:Georgia,serif}
+.qb-text{font-size:1.1rem;color:rgba(255,255,255,.82);line-height:1.75;font-style:italic;max-width:700px;margin-left:auto;margin-right:auto;text-align:center;padding-top:1rem}
+.qb-attr{font-size:13px;color:var(--green-lt);font-weight:500;letter-spacing:.04em;text-align:center;margin-top:1.25rem}
+
+@media(max-width:960px){
+  .page-hero{padding:120px 1.5rem 60px}
+  .page-hero-inner{grid-template-columns:1fr;text-align:center}
+  .dr-profile-av{margin:0 auto}
+  .dr-chips{justify-content:center}
+  .sec-std{padding:60px 1.5rem}
+  .exp-grid{grid-template-columns:1fr}
+  .traj-item{grid-template-columns:80px 1fr;gap:1rem}
+  .research-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:540px){.research-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="logo"><svg width="46" height="38" viewBox="0 0 46 38" fill="none"><path d="M4 14 L4 26 L13 31.5 L22 26 L22 14 L13 8.5 Z" stroke="#1E2D5A" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="4" cy="20" r="2.5" fill="#1E2D5A"/><path d="M24 7 L24 19 L33 24.5 L42 19 L42 7 L33 1.5 Z" stroke="#1E2D5A" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="42" cy="13" r="2.5" fill="#1E2D5A"/><circle cx="23" cy="19" r="4.5" fill="#4A8C6E"/></svg><div class="logo-text"><span class="logo-name">GONZAGA</span><span class="logo-sub">Science Driven Animal Nutrition</span></div></a>
+  <ul class="nav-links" id="nav-links"><li><a href="index.html">Inicio</a></li><li><a href="tecnologia.html">Tecnología</a></li><li><a href="productos.html">Productos</a></li><li><a href="academy.html">Academy</a></li><li><a href="investigacion.html" class="active">Dr. González</a></li><li><a href="contacto.html" class="nav-cta">Contacto</a></li></ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menú">☰</button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="dr-profile-av reveal">FG</div>
+    <div class="reveal">
+      <div class="dr-current"><span class="cur-dot"></span>Actualmente asesorando lecherías en Chile</div>
+      <span class="eyebrow">Founder & Chief Scientific Officer</span>
+      <div class="div-line"></div>
+      <h1 style="margin-bottom:.75rem">Dr. Fernando González<br><em>Muñizaga</em></h1>
+      <p style="font-size:16.5px;color:var(--gray-dk);line-height:1.78;max-width:620px;margin-bottom:1.5rem">Médico Veterinario con más de 40 años de trayectoria en nutrición animal, producción de leche y desarrollo tecnológico. Hoy asesora lecherías en Chile y empresas de alimentos, lidera el área de I+D de Gonzaga y transfiere activamente su conocimiento a través de cursos, asesorías y charlas internacionales.</p>
+      <div class="dr-chips">
+        <span class="dr-chip">Médico Veterinario</span>
+        <span class="dr-chip">Nutrición animal</span>
+        <span class="dr-chip">Producción de leche</span>
+        <span class="dr-chip">Metabolismo hepático</span>
+        <span class="dr-chip">Manejo de lecherías</span>
+        <span class="dr-chip">Bienestar animal</span>
+        <span class="dr-chip">Estrés calórico</span>
+        <span class="dr-chip">Compost barn</span>
+        <span class="dr-chip">Reproducción bovina</span>
+        <span class="dr-chip">Acuicultura</span>
+        <span class="dr-chip">Inventor — patente MSCM</span>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap">
+        <a href="academy.html#conferencista" class="btn btn-navy">Contratar como conferencista</a>
+        <a href="academy.html#contacto-academy" class="btn btn-ghost">Solicitar asesoría</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVIDAD ACTUAL -->
+<div class="sec-std">
+  <div class="std-inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Actividad actual</span>
+      <div class="div-line"></div>
+      <h2>Científico e investigador en ejercicio activo</h2>
+      <p class="lead">Una de las características más relevantes del Dr. González para los efectos de Gonzaga es que no es un académico retirado. Es un profesional activo, con clientes reales en Chile, que combina la asesoría de campo con el liderazgo de I+D de la empresa.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem" class="reveal">
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;border-top:3px solid var(--green)">
+        <div style="font-size:10.5px;font-weight:700;color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.75rem">Asesoría activa</div>
+        <h3 style="font-size:16px;margin-bottom:.65rem">Lecherías en Chile</h3>
+        <p style="font-size:14px;color:var(--gray-dk);line-height:1.7">Asesoría directa y continua a sistemas de producción de leche bovina en Chile. Diagnóstico nutricional, diseño de dietas, protocolos de transición y seguimiento de indicadores productivos y reproductivos.</p>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;border-top:3px solid var(--navy)">
+        <div style="font-size:10.5px;font-weight:700;color:var(--navy);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.75rem">Asesoría activa</div>
+        <h3 style="font-size:16px;margin-bottom:.65rem">Empresas de alimentos</h3>
+        <p style="font-size:14px;color:var(--gray-dk);line-height:1.7">Consultoría técnica para empresas de la industria alimentaria en desarrollo de productos, evaluación de ingredientes y aplicación de tecnologías de encapsulación para nutrición funcional humana y animal.</p>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;border-top:3px solid var(--green)">
+        <div style="font-size:10.5px;font-weight:700;color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.75rem">Liderazgo I+D</div>
+        <h3 style="font-size:16px;margin-bottom:.65rem">Gonzaga — Investigación & Desarrollo</h3>
+        <p style="font-size:14px;color:var(--gray-dk);line-height:1.7">Formulación de productos, validación científica, diseño de ensayos y transferencia de conocimiento a la empresa. Su objetivo es que Gonzaga preserve y expanda su legado científico mucho más allá de su participación directa.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERTISE PROFUNDO -->
+<div class="sec-std">
+  <div class="std-inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Áreas de expertise</span>
+      <div class="div-line"></div>
+      <h2>Conocimiento profundo y aplicado</h2>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-area">Nutrición de rumiantes</div>
+        <div class="exp-title">Nutrición de vacas de transición y lactancia</div>
+        <p class="exp-text">Especialización profunda en el período periparto (preparto y postparto temprano), manejo del balance energético negativo, prevención de hígado graso y cetosis, y optimización de la curva de lactancia mediante nutrición de precisión.</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-area">Metabolismo hepático</div>
+        <div class="exp-title">Función hepática y trastornos metabólicos</div>
+        <p class="exp-text">Comprensión profunda del rol del hígado como órgano central del metabolismo en vacas lecheras. Gluconeogénesis, ureagénesis, síntesis de VLDL, metabolismo lipídico y su relación con la producción, reproducción y longevidad del rebaño.</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-area">Manejo de lecherías</div>
+        <div class="exp-title">Gestión integral de sistemas lecheros</div>
+        <p class="exp-text">Visión integral del sistema productivo: desde la nutrición y el manejo del rebaño hasta la infraestructura, el bienestar animal y la gestión económica. Experiencia directa asesorando lecherías en Chile con foco en rentabilidad sostenible.</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-area">Bienestar animal y estrés calórico</div>
+        <div class="exp-title">Sistemas compost barn y estrés calórico</div>
+        <p class="exp-text">Diseño y evaluación de sistemas compost barn como solución de bienestar animal. Estrategias de manejo del estrés calórico y sus efectos sobre producción, reproducción y salud del rebaño en climas como el chileno y latinoamericano.</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-area">Reproducción bovina</div>
+        <div class="exp-title">Nutrición y eficiencia reproductiva</div>
+        <p class="exp-text">La relación entre nutrición, balance energético y parámetros reproductivos. Protocolos nutricionales para mejorar tasa de concepción, reducir días abiertos y aumentar permanencia en el rebaño — impacto directo en rentabilidad.</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-area">Tecnología de ingredientes</div>
+        <div class="exp-title">Ingredientes protegidos y encapsulación</div>
+        <p class="exp-text">Inventor de la tecnología MSCM de aceite vegetal en polvo. Experto en técnicas de protección ruminal de aminoácidos, vitaminas y lípidos. Desarrollo de sustitutos lácteos y formulaciones para acuicultura.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRAYECTORIA -->
+<div class="sec-std" style="background:var(--off)">
+  <div class="std-inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Trayectoria</span>
+      <div class="div-line"></div>
+      <h2>Más de cuatro décadas de trabajo aplicado</h2>
+    </div>
+    <div class="traj-list reveal">
+      <div class="traj-item">
+        <div class="traj-year">Hoy</div>
+        <div><div class="traj-title">Founder & CSO — Gonzaga · Asesor activo en Chile</div><div class="traj-desc">Lidera I+D de Gonzaga, asesora lecherías y empresas de alimentos en Chile. Desarrolla y transfiere tecnología nutricional propietaria. Disponible como conferencista y consultor internacional.</div></div>
+      </div>
+      <div class="traj-item">
+        <div class="traj-year">2018</div>
+        <div><div class="traj-title">Proyecto Corfo aprobado — Atomized Foods SpA</div><div class="traj-desc">Proyecto "Escalamiento industrial de un prototipo para la producción de grasas en polvo" (17 ITE2-89-188) aprobado por Corfo. Validación industrial del proceso MSCM con empresa asociada AASA S.A.</div></div>
+      </div>
+      <div class="traj-item">
+        <div class="traj-year">2000s</div>
+        <div><div class="traj-title">Pontificia Universidad Católica de Chile — Departamento de Ciencias Animales</div><div class="traj-desc">Docencia e investigación en nutrición animal y producción de leche. Dirección de ensayos con terneras Holstein Friesian en Estación Experimental Pirque. Desarrollo de sustitutos lácteos y formulaciones con concentrados proteicos alternativos.</div></div>
+      </div>
+      <div class="traj-item">
+        <div class="traj-year">1990s</div>
+        <div><div class="traj-title">Universidad de Chile · Investigación aplicada</div><div class="traj-desc">Docencia e investigación en nutrición y alimentación animal. Desarrollo de líneas de investigación en rumiantes, producción de leche y metabolismo hepático. Inicio de trabajo en aceites vegetales y nutrición energética.</div></div>
+      </div>
+      <div class="traj-item">
+        <div class="traj-year">Décadas anteriores</div>
+        <div><div class="traj-title">Formación y trayectoria profesional en nutrición animal</div><div class="traj-desc">Formación como Médico Veterinario y especialización progresiva en nutrición animal, con foco en producción de leche, metabolismo de rumiantes y desarrollo de ingredientes funcionales para alimentación animal.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INVESTIGACION Y PUBLICACIONES -->
+<div class="sec-std">
+  <div class="std-inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Investigación aplicada</span>
+      <div class="div-line"></div>
+      <h2>Ensayos clínicos y validación científica</h2>
+      <p class="lead">El conocimiento de Fernando González no es solo teórico. Cada área de expertise está respaldada por ensayos realizados con animales reales en condiciones productivas reales.</p>
+    </div>
+    <div class="research-grid">
+      <div class="res-card reveal">
+        <div class="res-type">Ensayo clínico propio</div>
+        <div class="res-title">Suplementación de Met/Col Plus en vacas lecheras Holstein Friesian</div>
+        <p class="res-desc">Ensayo con 3 tratamientos (control, propilenglicol, Met/Col experimental). Resultados: +21.4% producción de leche (días 0–150), persistencia 73.1% vs. 62.8% control, mejor composición láctea y menor recuento de células somáticas.</p>
+      </div>
+      <div class="res-card reveal">
+        <div class="res-type">Ensayo publicado — PUC Chile</div>
+        <div class="res-title">Proteína purificada de maíz en sustitutos lácteos para terneros</div>
+        <p class="res-desc">González, F., Sepúlveda, N. y Castillo, G. — Departamento de Ciencias Animales, PUC Chile. 30 terneras Holstein Friesian, 3 tratamientos, 120 días. La proteína de maíz purificada demostró eficiencia de conversión equivalente al control de suero de leche y superior a la proteína de soya.</p>
+      </div>
+      <div class="res-card reveal">
+        <div class="res-type">Proyecto Corfo validado</div>
+        <div class="res-title">Escalamiento industrial del proceso MSCM</div>
+        <p class="res-desc">Proyecto Corfo 17 ITE2-89-188. Validación y patentamiento del proceso de producción de grasa vegetal en polvo mediante spray cooling modificado. Ensayos en cerdas en lactancia y lechones, y en vacas lecheras con resultados positivos en digestibilidad y ganancia de peso.</p>
+      </div>
+      <div class="res-card reveal">
+        <div class="res-type">Investigación aplicada</div>
+        <div class="res-title">Vitaminas del complejo B protegidas en vacas lecheras</div>
+        <p class="res-desc">Investigación sobre degradación ruminal de vitaminas B y necesidad de protección: 97.5% de degradación para ácido fólico, 62.9% para B12, 45.2% para biotina (Santschi et al, 2005). Base para la formulación de Met/Col Plus con vitaminas encapsuladas.</p>
+      </div>
+      <div class="res-card reveal">
+        <div class="res-type">Investigación aplicada</div>
+        <div class="res-title">Metabolismo hepático y suplementación de colina y metionina</div>
+        <p class="res-desc">Investigación sobre el rol conjunto de metionina y colina en la síntesis de VLDL, exportación de triglicéridos y prevención de hígado graso. Base del principal diferenciador competitivo de Gonzaga frente a productos que ofrecen estos nutrientes por separado.</p>
+      </div>
+      <div class="res-card reveal">
+        <div class="res-type">Investigación en curso</div>
+        <div class="res-title">Aplicaciones en acuicultura — encapsulación de Omega-3</div>
+        <p class="res-desc">Desarrollo de ingredientes para la industria salmonera basados en la plataforma MSCM. Encapsulación de EPA y DHA para mayor estabilidad nutricional frente a productos importados. En desarrollo como línea de negocio para el mercado chileno.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="sec-std" style="background:var(--off)">
+  <div class="std-inner">
+    <div class="quote-block reveal">
+      <p class="qb-text">La investigación lleva más de cuatro décadas. Gonzaga es el vehículo para que ese conocimiento continúe siendo útil, se transfiera al sector productivo y perdure más allá de una sola generación. Mi intención es que esta empresa sea capaz de seguir generando innovación cuando yo ya no esté activo.</p>
+      <div class="qb-attr">— Dr. Fernando González Muñizaga, Founder & CSO, Gonzaga</div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="academy.html#conferencista" class="btn btn-navy">Contratar como conferencista</a>
+        <a href="academy.html#contacto-academy" class="btn btn-ghost">Solicitar asesoría técnica</a>
+        <a href="contacto.html" class="btn btn-ghost">Contacto general</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand"><a href="index.html" class="logo" style="text-decoration:none"><svg width="38" height="32" viewBox="0 0 46 38" fill="none"><path d="M4 14 L4 26 L13 31.5 L22 26 L22 14 L13 8.5 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="4" cy="20" r="2.5" fill="white"/><path d="M24 7 L24 19 L33 24.5 L42 19 L42 7 L33 1.5 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="42" cy="13" r="2.5" fill="white"/><circle cx="23" cy="19" r="4.5" fill="#4A8C6E"/></svg><div class="logo-text" style="margin-left:10px"><span class="logo-name" style="color:white">GONZAGA</span><span class="logo-sub">Science Driven Animal Nutrition</span></div></a><p>El respaldo científico detrás de cada producto Gonzaga.</p></div>
+    <div><div class="foot-col-t">Dr. González</div><ul class="foot-links"><li><a href="#expertise">Áreas de expertise</a></li><li><a href="#trayectoria">Trayectoria</a></li><li><a href="academy.html#conferencista">Como conferencista</a></li><li><a href="academy.html#contacto-academy">Solicitar asesoría</a></li></ul></div>
+    <div><div class="foot-col-t">Productos</div><ul class="foot-links"><li><a href="productos.html#metcol">Met/Col Plus</a></li><li><a href="productos.html#aminomet">AminoMet</a></li><li><a href="productos.html">Ver todos</a></li></ul></div>
+    <div><div class="foot-col-t">Contacto</div><ul class="foot-links"><li><a href="contacto.html">Contacto general</a></li><li><a href="academy.html">Gonzaga Academy</a></li><li><a href="mailto:contacto@gonzagatech.cl">contacto@gonzagatech.cl</a></li></ul></div>
+  </div>
+  <div class="foot-bottom"><span class="foot-copy">© 2025 Gonzaga — gonzagatech.cl. Todos los derechos reservados.</span><span class="foot-tag">Science Driven Animal Nutrition</span></div>
+</footer>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8));
+function toggleNav(){nav.classList.toggle('open')}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const io=new IntersectionObserver((e)=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('in'),i*65);io.unobserve(el.target)}})},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body></html>

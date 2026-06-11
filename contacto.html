@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="page" content="contacto">
+<title>Contacto | GONZAGA</title>
+<meta name="description" content="Contacte a Gonzaga: encuentre su distribuidor, solicite información para distribuir, o consulte sobre Academy y asesorías.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+.page-hero{background:var(--off);padding:140px 3rem 72px;border-bottom:1px solid var(--border)}
+.page-hero-inner{max-width:900px;margin:0 auto;text-align:center}
+
+/* AUDIENCE SELECTOR */
+.aud-selector{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:900px;margin:0 auto 4rem}
+.aud-tab{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:1.4rem 1rem;cursor:pointer;transition:var(--ease);text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.55rem}
+.aud-tab:hover{border-color:var(--navy);box-shadow:var(--sh-md)}
+.aud-tab.selected{border-color:var(--navy);background:var(--navy-soft);box-shadow:var(--sh-sm)}
+.aud-tab-ico{width:40px;height:40px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center}
+.aud-tab-t{font-size:13px;font-weight:700;color:var(--navy);line-height:1.3}
+.aud-tab-d{font-size:11px;color:var(--gray);line-height:1.4}
+
+/* FORM PANELS */
+.form-panel{display:none;max-width:900px;margin:0 auto}
+.form-panel.active{display:block}
+.fp-head{margin-bottom:2.5rem}
+.fp-context{background:var(--navy-soft);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem 1.5rem;font-size:14.5px;color:var(--gray-dk);line-height:1.7;margin-bottom:2rem}
+.fp-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;align-items:start}
+
+/* DISTRIBUIDOR INFO */
+.dist-info{display:flex;flex-direction:column;gap:1.25rem}
+.di-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem;display:flex;align-items:flex-start;gap:1rem}
+.di-ico{width:42px;height:42px;min-width:42px;background:var(--green-pale);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center}
+.di-t{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.di-d{font-size:13px;color:var(--gray-dk);line-height:1.6}
+
+/* ANCHOR OFFSET */
+.anchor-offset{padding-top:90px;margin-top:-90px;display:block}
+
+@media(max-width:960px){
+  .page-hero{padding:120px 1.5rem 60px}
+  .aud-selector{grid-template-columns:1fr 1fr}
+  .fp-grid{grid-template-columns:1fr;gap:2.5rem}
+}
+@media(max-width:540px){.aud-selector{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="logo"><svg width="46" height="38" viewBox="0 0 46 38" fill="none"><path d="M4 14 L4 26 L13 31.5 L22 26 L22 14 L13 8.5 Z" stroke="#1E2D5A" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="4" cy="20" r="2.5" fill="#1E2D5A"/><path d="M24 7 L24 19 L33 24.5 L42 19 L42 7 L33 1.5 Z" stroke="#1E2D5A" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="42" cy="13" r="2.5" fill="#1E2D5A"/><circle cx="23" cy="19" r="4.5" fill="#4A8C6E"/></svg><div class="logo-text"><span class="logo-name">GONZAGA</span><span class="logo-sub">Science Driven Animal Nutrition</span></div></a>
+  <ul class="nav-links" id="nav-links"><li><a href="index.html">Inicio</a></li><li><a href="tecnologia.html">Tecnología</a></li><li><a href="productos.html">Productos</a></li><li><a href="academy.html">Academy</a></li><li><a href="investigacion.html">Dr. González</a></li><li><a href="contacto.html" class="nav-cta active">Contacto</a></li></ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menú">☰</button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner reveal">
+    <span class="eyebrow">Contacto</span>
+    <div class="div-line" style="margin:0 auto 1rem"></div>
+    <h1 style="margin-bottom:1rem">¿Con quién hablamos hoy?</h1>
+    <p class="lead" style="margin:0 auto">Seleccione su perfil para que podamos orientarle de la mejor manera posible.</p>
+  </div>
+</div>
+
+<section style="padding:64px 3rem 80px;background:var(--white)">
+  <div>
+    <!-- SELECTOR DE AUDIENCIA -->
+    <div class="aud-selector reveal">
+      <a class="aud-tab selected" id="tab-prod" href="#productores" onclick="showPanel('productores',this);return false">
+        <div class="aud-tab-ico" style="background:var(--navy-soft)"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#1E2D5A" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div>
+        <div class="aud-tab-t">Soy productor</div>
+        <div class="aud-tab-d">Busco un distribuidor autorizado</div>
+      </a>
+      <a class="aud-tab" id="tab-dist" href="#distribuidores" onclick="showPanel('distribuidores',this);return false">
+        <div class="aud-tab-ico" style="background:var(--green-pale)"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+        <div class="aud-tab-t">Quiero distribuir</div>
+        <div class="aud-tab-d">Me interesa ser distribuidor</div>
+      </a>
+      <a class="aud-tab" id="tab-acad" href="#academy" onclick="showPanel('academy',this);return false">
+        <div class="aud-tab-ico" style="background:#E6F1FB"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#185FA5" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg></div>
+        <div class="aud-tab-t">Cursos y asesorías</div>
+        <div class="aud-tab-d">Academy o consulta técnica</div>
+      </a>
+      <a class="aud-tab" id="tab-otro" href="#otro" onclick="showPanel('otro',this);return false">
+        <div class="aud-tab-ico" style="background:var(--navy-soft)"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#1E2D5A" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 3H3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2V5a2 2 0 00-2-2z"/></svg></div>
+        <div class="aud-tab-t">Otro motivo</div>
+        <div class="aud-tab-d">Prensa, alianzas, investigación</div>
+      </a>
+    </div>
+
+    <!-- PANEL: PRODUCTOR -->
+    <span class="anchor-offset" id="productores"></span>
+    <div class="form-panel active" id="panel-productores">
+      <div class="fp-head reveal">
+        <span class="eyebrow">Para productores</span>
+        <div class="div-line"></div>
+        <h2>Encontremos el distribuidor más cercano a usted</h2>
+      </div>
+      <div class="fp-context reveal">Los productos Gonzaga se distribuyen <strong>exclusivamente a través de distribuidores autorizados</strong>. Complete el formulario con su ubicación y el tipo de producto que le interesa, y le pondremos en contacto con el distribuidor más cercano a su zona de producción.</div>
+      <div class="fp-grid">
+        <div class="dist-info reveal">
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><div class="di-t">Cobertura en Chile</div><div class="di-d">Distribuidores en las principales regiones lecheras y productoras del país.</div></div></div>
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><div class="di-t">Distribuidores capacitados</div><div class="di-d">Todos los distribuidores tienen formación técnica Gonzaga para asesorarle correctamente.</div></div></div>
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><div class="di-t">Respuesta dentro de 48 horas</div><div class="di-d">Le respondemos en 1–2 días hábiles con datos de su distribuidor más cercano.</div></div></div>
+        </div>
+        <div class="cform reveal">
+          <div class="f-row">
+            <div class="fg"><label class="fl">Nombre</label><input class="fi" type="text" placeholder="Su nombre completo"></div>
+            <div class="fg"><label class="fl">Teléfono (opcional)</label><input class="fi" type="tel" placeholder="+56 9 0000 0000"></div>
+          </div>
+          <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" type="email" placeholder="correo@empresa.cl"></div>
+          <div class="f-row">
+            <div class="fg"><label class="fl">Región / Zona</label><input class="fi" type="text" placeholder="Ej: Los Lagos, Biobío..."></div>
+            <div class="fg"><label class="fl">Especie que produce</label><select class="fs"><option>Bovinos lecheros</option><option>Cabras lecheras</option><option>Ovinos</option><option>Salmones</option><option>Otra</option></select></div>
+          </div>
+          <div class="fg"><label class="fl">Producto de interés</label><select class="fs"><option value="">Seleccione (opcional)</option><option>Met/Col Plus</option><option>AminoMet</option><option>Aceite Vegetal en Polvo</option><option>Sustitutos Lácteos</option><option>Sales Minerales Funcionales</option><option>Alimento para Salmones</option><option>No sé aún — necesito orientación</option></select></div>
+          <div class="fg"><label class="fl">Mensaje (opcional)</label><textarea class="fta" style="min-height:80px" placeholder="Cuéntenos brevemente su sistema productivo o consulta."></textarea></div>
+          <button class="fsub">Solicitar distribuidor autorizado →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: DISTRIBUIDOR -->
+    <span class="anchor-offset" id="distribuidores"></span>
+    <div class="form-panel" id="panel-distribuidores">
+      <div class="fp-head reveal">
+        <span class="eyebrow">Para distribuidores potenciales</span>
+        <div class="div-line"></div>
+        <h2>Interesado en representar Gonzaga en su región</h2>
+      </div>
+      <div class="fp-context reveal">Buscamos socios estratégicos con capacidad de asesoría técnica veterinaria o nutricional. Un distribuidor Gonzaga no solo vende producto — asesora al productor. Si tiene experiencia en el sector ganadero o alimentario y le interesa conocer las condiciones de representación, complete el formulario.</div>
+      <div class="fp-grid">
+        <div class="dist-info reveal">
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><div><div class="di-t">Distribuidores técnicos</div><div class="di-d">Buscamos veterinarios, nutricionistas o empresas con track record técnico en el sector.</div></div></div>
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div><div><div class="di-t">Formación incluida</div><div class="di-d">Capacitación técnica completa en todos los productos y en la plataforma tecnológica Gonzaga.</div></div></div>
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg></div><div><div class="di-t">Chile y Latinoamérica</div><div class="di-d">Oportunidades de representación en distintas regiones y países de la región.</div></div></div>
+        </div>
+        <div class="cform reveal">
+          <div class="f-row">
+            <div class="fg"><label class="fl">Nombre</label><input class="fi" type="text" placeholder="Su nombre completo"></div>
+            <div class="fg"><label class="fl">Empresa / Organización</label><input class="fi" type="text" placeholder="Nombre de su empresa"></div>
+          </div>
+          <div class="f-row">
+            <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" type="email" placeholder="correo@empresa.cl"></div>
+            <div class="fg"><label class="fl">País / Región</label><input class="fi" type="text" placeholder="Ej: Los Lagos, Uruguay..."></div>
+          </div>
+          <div class="fg"><label class="fl">Perfil de su empresa o actividad actual</label><select class="fs"><option value="">Seleccione una opción</option><option>Veterinario independiente</option><option>Empresa distribuidora de insumos ganaderos</option><option>Empresa de nutrición animal</option><option>Cooperativa lechera o ganadera</option><option>Representante de importaciones</option><option>Otro perfil</option></select></div>
+          <div class="fg"><label class="fl">Zona geográfica de interés</label><input class="fi" type="text" placeholder="Ej: Región de Los Lagos, norte de Uruguay..."></div>
+          <div class="fg"><label class="fl">Cuéntenos sobre su empresa y por qué le interesa Gonzaga</label><textarea class="fta" placeholder="Descripción breve de su empresa, red de clientes actual y motivación para representar Gonzaga."></textarea></div>
+          <button class="fsub">Enviar solicitud de distribución →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: ACADEMY -->
+    <span class="anchor-offset" id="academy"></span>
+    <div class="form-panel" id="panel-academy">
+      <div class="fp-head reveal">
+        <span class="eyebrow">Academy y asesorías técnicas</span>
+        <div class="div-line"></div>
+        <h2>Cursos, asesorías y charlas internacionales</h2>
+      </div>
+      <div class="fp-context reveal">Gonzaga Academy ofrece cursos técnicos, asesorías personalizadas para lecherías y empresas de alimentos, y charlas internacionales en congresos y seminarios. Cuéntenos su necesidad y le respondemos con una propuesta específica.</div>
+      <div class="fp-grid">
+        <div class="dist-info reveal">
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/></svg></div><div><div class="di-t">Cursos técnicos</div><div class="di-d">Nutrición de transición, metabolismo hepático, producción de leche, sustitutos lácteos, acuicultura.</div></div></div>
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div><div><div class="di-t">Asesorías técnicas</div><div class="di-d">Manejo de lecherías, nutrición, estrés calórico, compost barn, bienestar animal.</div></div></div>
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945"/></svg></div><div><div class="di-t">Charlas internacionales</div><div class="di-d">El Dr. González disponible para congresos y seminarios en Chile y Latinoamérica.</div></div></div>
+        </div>
+        <div class="cform reveal">
+          <div class="f-row">
+            <div class="fg"><label class="fl">Nombre</label><input class="fi" type="text" placeholder="Su nombre completo"></div>
+            <div class="fg"><label class="fl">Empresa / Institución</label><input class="fi" type="text" placeholder="Nombre de su organización"></div>
+          </div>
+          <div class="f-row">
+            <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" type="email" placeholder="correo@empresa.cl"></div>
+            <div class="fg"><label class="fl">País</label><input class="fi" type="text" placeholder="Chile"></div>
+          </div>
+          <div class="fg"><label class="fl">¿Qué servicio le interesa?</label>
+            <select class="fs"><option value="">Seleccione una opción</option><option>Curso técnico</option><option>Asesoría técnica para lechería</option><option>Asesoría para empresa de alimentos</option><option>Charla o conferencia internacional</option><option>Capacitación in-company</option><option>Webinar o seminario online</option><option>Otro</option></select>
+          </div>
+          <div class="fg"><label class="fl">Cuéntenos sobre su necesidad</label><textarea class="fta" placeholder="Describa su empresa, contexto productivo y lo que está buscando."></textarea></div>
+          <button class="fsub">Enviar solicitud Academy →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: OTRO -->
+    <span class="anchor-offset" id="otro"></span>
+    <div class="form-panel" id="panel-otro">
+      <div class="fp-head reveal">
+        <span class="eyebrow">Otro motivo de contacto</span>
+        <div class="div-line"></div>
+        <h2>Prensa, alianzas o investigación</h2>
+      </div>
+      <div class="fp-context reveal">¿Periodista, investigador, institución académica o empresa interesada en una alianza? Escríbanos directamente.</div>
+      <div class="fp-grid">
+        <div class="dist-info reveal">
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div><div class="di-t">Correo general</div><div class="di-d"><a href="mailto:contacto@gonzagatech.cl" style="color:var(--green)">contacto@gonzagatech.cl</a></div></div></div>
+          <div class="di-card"><div class="di-ico"><svg width="19" height="19" fill="none" viewBox="0 0 24 24" stroke="#4A8C6E" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3"/></svg></div><div><div class="di-t">Sitio web</div><div class="di-d"><a href="https://gonzagatech.cl" style="color:var(--green)">gonzagatech.cl</a></div></div></div>
+        </div>
+        <div class="cform reveal">
+          <div class="f-row">
+            <div class="fg"><label class="fl">Nombre</label><input class="fi" type="text" placeholder="Su nombre"></div>
+            <div class="fg"><label class="fl">Organización</label><input class="fi" type="text" placeholder="Empresa o institución"></div>
+          </div>
+          <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" type="email" placeholder="correo@org.cl"></div>
+          <div class="fg"><label class="fl">Motivo de contacto</label><select class="fs"><option value="">Seleccione</option><option>Prensa / medios</option><option>Investigación académica</option><option>Alianza estratégica</option><option>Inversionista</option><option>Licenciamiento de tecnología</option><option>Otro</option></select></div>
+          <div class="fg"><label class="fl">Mensaje</label><textarea class="fta" placeholder="Cuéntenos el motivo de su contacto."></textarea></div>
+          <button class="fsub">Enviar mensaje →</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand"><a href="index.html" class="logo" style="text-decoration:none"><svg width="38" height="32" viewBox="0 0 46 38" fill="none"><path d="M4 14 L4 26 L13 31.5 L22 26 L22 14 L13 8.5 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="4" cy="20" r="2.5" fill="white"/><path d="M24 7 L24 19 L33 24.5 L42 19 L42 7 L33 1.5 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="none" stroke-linecap="round"/><circle cx="42" cy="13" r="2.5" fill="white"/><circle cx="23" cy="19" r="4.5" fill="#4A8C6E"/></svg><div class="logo-text" style="margin-left:10px"><span class="logo-name" style="color:white">GONZAGA</span><span class="logo-sub">Science Driven Animal Nutrition</span></div></a><p>Transformamos conocimiento científico en soluciones nutricionales avanzadas.</p></div>
+    <div><div class="foot-col-t">Empresa</div><ul class="foot-links"><li><a href="tecnologia.html">Tecnología</a></li><li><a href="investigacion.html">Dr. González</a></li><li><a href="academy.html">Gonzaga Academy</a></li></ul></div>
+    <div><div class="foot-col-t">Productos</div><ul class="foot-links"><li><a href="productos.html#metcol">Met/Col Plus</a></li><li><a href="productos.html#aminomet">AminoMet</a></li><li><a href="productos.html">Ver todos</a></li></ul></div>
+    <div><div class="foot-col-t">Contacto directo</div><ul class="foot-links"><li><a href="mailto:contacto@gonzagatech.cl">contacto@gonzagatech.cl</a></li><li><a href="mailto:academy@gonzagatech.cl">academy@gonzagatech.cl</a></li><li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="foot-bottom"><span class="foot-copy">© 2025 Gonzaga — gonzagatech.cl. Todos los derechos reservados.</span><span class="foot-tag">Science Driven Animal Nutrition</span></div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8));
+function toggleNav(){nav.classList.toggle('open')}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const io=new IntersectionObserver((e)=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('in'),i*65);io.unobserve(el.target)}})},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+function showPanel(id, tab){
+  document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.aud-tab').forEach(t=>t.classList.remove('selected'));
+  document.getElementById('panel-'+id).classList.add('active');
+  tab.classList.add('selected');
+  document.getElementById('panel-'+id).scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// handle hash on load
+const h=window.location.hash.replace('#','');
+const tabMap={productores:'tab-prod',distribuidores:'tab-dist',academy:'tab-acad',otro:'tab-otro'};
+if(h && tabMap[h]){
+  const t=document.getElementById(tabMap[h]);
+  if(t) showPanel(h,t);
+}
+</script>
+</body></html>
